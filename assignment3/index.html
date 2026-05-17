@@ -28,6 +28,13 @@
   <!-- ===== HEADER ===== -->
   <header class="header">
     <div class="header-inner">
+      <!-- 漢堡按鈕（手機版） -->
+      <button type="button" class="hamburger" id="hamburger" aria-label="開啟選單" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <!-- Logo -->
       <div class="logo">
         <span class="logo-momo">momo</span>
@@ -44,15 +51,15 @@
       <div class="cart-area">
         <button type="button" class="cart-btn">
           <span class="cart-icon">🛒</span>
-          <span>購物車</span>
+          <span class="cart-label">購物車</span>
           <span class="cart-count">0</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- ===== MAIN NAV ===== -->
-  <nav class="main-nav">
+  <!-- ===== MAIN NAV（桌機水平列） ===== -->
+  <nav class="main-nav" id="main-nav">
     <div class="nav-inner">
       <a href="#">美妝保養</a>
       <a href="#">流行服飾</a>
@@ -65,6 +72,25 @@
       <a href="#">書店</a>
       <a href="#" class="nav-highlight">🔥 今日限定</a>
     </div>
+  </nav>
+
+  <!-- ===== MOBILE NAV DRAWER（手機漢堡選單） ===== -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <span class="mobile-nav-title">分類選單</span>
+      <button type="button" class="mobile-nav-close" id="mobile-nav-close" aria-label="關閉選單">✕</button>
+    </div>
+    <a href="#">美妝保養</a>
+    <a href="#">流行服飾</a>
+    <a href="#">時尚精品</a>
+    <a href="#">3C</a>
+    <a href="#">數位家電</a>
+    <a href="#">生活用品</a>
+    <a href="#">美食</a>
+    <a href="#">旅遊票券</a>
+    <a href="#">書店</a>
+    <a href="#" class="nav-highlight">🔥 今日限定</a>
   </nav>
 
   <!-- ===== ALERT BANNER ===== -->

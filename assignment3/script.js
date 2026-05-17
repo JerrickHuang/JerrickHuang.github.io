@@ -103,3 +103,52 @@ if (btnService) btnService.addEventListener('click', openModal);
 // ── 線上客服 → 顯示教育彈窗 ──
 const btnChat = document.getElementById('btn-chat');
 if (btnChat) btnChat.addEventListener('click', openModal);
+
+
+// ── 漢堡選單開關 ──
+(function initHamburger() {
+  const hamburger    = document.getElementById('hamburger');
+  const mobileNav    = document.getElementById('mobile-nav');
+  const overlay      = document.getElementById('mobile-nav-overlay');
+  const closeBtn     = document.getElementById('mobile-nav-close');
+
+  if (!hamburger || !mobileNav || !overlay) return;
+
+  function openMenu() {
+    hamburger.classList.add('open');
+    mobileNav.classList.add('open');
+    overlay.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    mobileNav.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; // 防止背景捲動
+  }
+
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+    overlay.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  // 關閉按鈕
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+  // 點擊遮罩關閉
+  overlay.addEventListener('click', closeMenu);
+
+  // ESC 鍵關閉
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // 點選選單內連結自動關閉
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+})();

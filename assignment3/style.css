@@ -153,10 +153,33 @@ ul { list-style: none; }
 .nav-highlight { color: #D62872; font-weight: 700; }
 
 /* ── Alert Banner ── */
+
+/* 橫幅背景脈動：淡粉 → 稍深粉，2秒循環 */
+@keyframes bannerPulse {
+  0%, 100% { background: #fff3f5; }
+  50%       { background: #ffe0e8; }
+}
+
+/* 警示圖示左右搖擺 */
+@keyframes iconShake {
+  0%, 100% { transform: rotate(0deg); }
+  20%       { transform: rotate(-12deg); }
+  40%       { transform: rotate(12deg); }
+  60%       { transform: rotate(-8deg); }
+  80%       { transform: rotate(8deg); }
+}
+
+/* 計時器最後 60 秒：數字跳動放大 */
+@keyframes timerPulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.18); }
+}
+
 .alert-banner {
   background: #fff3f5;
   border-top: 3px solid #D62872;
   border-bottom: 1px solid #f8c0d0;
+  animation: bannerPulse 2s ease-in-out infinite;
 }
 .alert-inner {
   max-width: 1200px;
@@ -166,7 +189,16 @@ ul { list-style: none; }
   align-items: flex-start;
   gap: 12px;
 }
-.alert-icon { font-size: 22px; flex-shrink: 0; }
+
+/* 圖示：持續搖擺，3秒一循環 */
+.alert-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+  display: inline-block;
+  animation: iconShake 3s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
 .alert-text {
   flex: 1;
   display: flex;
@@ -176,13 +208,25 @@ ul { list-style: none; }
 }
 .alert-text strong { color: #C0003C; font-size: 14px; }
 .alert-text span { color: #555; }
+
 .alert-timer {
   flex-shrink: 0;
   font-size: 13px;
   color: #888;
   white-space: nowrap;
 }
-.alert-timer b { color: #C0003C; font-size: 15px; }
+.alert-timer b {
+  color: #C0003C;
+  font-size: 15px;
+  display: inline-block; /* transform 需要 block/inline-block */
+  transition: color 0.3s ease;
+}
+
+/* 最後 60 秒觸發：數字跳動 + 顏色加深 */
+.alert-timer b.urgent {
+  color: #8B0000;
+  animation: timerPulse 0.8s ease-in-out infinite;
+}
 
 /* ── Main Content ── */
 .main-content { padding: 20px 0 40px; }

@@ -13,16 +13,24 @@
 
   const tick = setInterval(() => {
     total--;
+
     if (total <= 0) {
       clearInterval(tick);
       el.textContent = '00:00';
-      el.style.color = '#C0003C';
+      el.classList.add('urgent');
       return;
     }
+
     const m = String(Math.floor(total / 60)).padStart(2, '0');
     const s = String(total % 60).padStart(2, '0');
     el.textContent = `${m}:${s}`;
-    if (total <= 60) el.style.color = '#C0003C';
+
+    // 最後 60 秒：加上 urgent class 觸發跳動動畫
+    if (total <= 60) {
+      el.classList.add('urgent');
+    } else {
+      el.classList.remove('urgent');
+    }
   }, 1000);
 })();
 

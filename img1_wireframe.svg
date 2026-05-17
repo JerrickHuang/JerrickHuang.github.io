@@ -1,0 +1,965 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  momo 購物網首頁 Wireframe
+  版本：1.0
+  說明：根據 momoshop.com.tw 首頁截圖繪製的線框稿
+  元件標記：每個區塊均有 id 與 label，方便修改
+  畫布：1200 x 3400 px
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1200 3400"
+  width="1200"
+  height="3400"
+  font-family="'Noto Sans TC', 'PingFang TC', Arial, sans-serif"
+>
+
+<!-- ═══════════════════════════════════════════
+     STYLES
+     ═══════════════════════════════════════════ -->
+<style>
+  .label-zone   { font-size:11px; fill:#999; font-style:italic; }
+  .label-comp   { font-size:12px; fill:#444; font-weight:600; }
+  .label-sub    { font-size:11px; fill:#777; }
+  .label-badge  { font-size:10px; fill:#fff; }
+  .section-tag  { font-size:10px; fill:#fff; font-weight:700; }
+  .price-text   { font-size:13px; fill:#C0003C; font-weight:700; }
+  .btn-text     { font-size:11px; fill:#fff; font-weight:600; }
+  .nav-item     { font-size:12px; fill:#333; }
+  .footer-text  { font-size:11px; fill:#ccc; }
+  .annotation   { font-size:10px; fill:#aaa; }
+
+  /* 區塊底色系統 */
+  .bg-page      { fill:#f5f5f5; }
+  .bg-white     { fill:#ffffff; }
+  .bg-header    { fill:#ffffff; }
+  .bg-nav       { fill:#ffffff; }
+  .bg-utility   { fill:#f7f7f7; }
+  .bg-banner    { fill:#e8e8e8; }
+  .bg-promo     { fill:#fff0f3; }
+  .bg-section   { fill:#ffffff; }
+  .bg-card      { fill:#ffffff; }
+  .bg-img       { fill:#ddd; }
+  .bg-footer    { fill:#222233; }
+  .bg-copyright { fill:#111122; }
+
+  /* 邊框 */
+  .border-light { stroke:#e0e0e0; stroke-width:1; fill:none; }
+  .border-card  { stroke:#e5e5e5; stroke-width:0.8; }
+  .border-red   { stroke:#D62872; stroke-width:1; }
+  .border-gray  { stroke:#cccccc; stroke-width:0.8; }
+  .border-dash  { stroke:#bbbbbb; stroke-width:0.8; stroke-dasharray:4 3; fill:none; }
+
+  /* 按鈕 */
+  .btn-primary  { fill:#D62872; }
+  .btn-secondary{ fill:#555; }
+  .btn-outline  { fill:none; stroke:#D62872; stroke-width:1; }
+
+  /* 色標 */
+  .tag-red   { fill:#D62872; }
+  .tag-orange{ fill:#F06020; }
+  .tag-pink  { fill:#FF6699; }
+  .tag-gray  { fill:#888; }
+  .tag-dark  { fill:#333; }
+  .tag-purple{ fill:#7B3FB0; }
+  .tag-green { fill:#2A9D4E; }
+  .tag-blue  { fill:#1A73C8; }
+
+  /* X 佔位符 */
+  .placeholder-line { stroke:#bbb; stroke-width:0.8; }
+</style>
+
+<!-- 頁面背景 -->
+<rect x="0" y="0" width="1200" height="3400" class="bg-page"/>
+
+<!-- ══════════════════════════════════════════════════════════
+     ZONE 1：HEADER AREA
+     包含：① utility bar、② header logo/search/cart、③ main nav
+     ══════════════════════════════════════════════════════════ -->
+
+<!-- ① Utility Bar -->
+<g id="utility-bar">
+  <rect x="0" y="0" width="1200" height="30" class="bg-utility" stroke="#e0e0e0" stroke-width="0.5"/>
+  <text x="8" y="19" class="label-zone">① Utility Bar</text>
+  <text x="160" y="19" class="label-sub">首頁</text>
+  <line x1="195" y1="8" x2="195" y2="22" stroke="#ccc" stroke-width="0.5"/>
+  <text x="204" y="19" class="label-sub">momo富立保險</text>
+  <line x1="295" y1="8" x2="295" y2="22" stroke="#ccc" stroke-width="0.5"/>
+  <text x="303" y="19" class="label-sub">APP下載</text>
+  <line x1="355" y1="8" x2="355" y2="22" stroke="#ccc" stroke-width="0.5"/>
+  <text x="363" y="19" class="label-sub">點點賺分潤計畫</text>
+  <line x1="460" y1="8" x2="460" y2="22" stroke="#ccc" stroke-width="0.5"/>
+  <text x="468" y="19" class="label-sub">書店</text>
+  <!-- right side -->
+  <rect x="950" y="5" width="50" height="20" rx="3" class="bg-white" stroke="#ddd" stroke-width="0.8"/>
+  <text x="975" y="18" text-anchor="middle" class="label-sub">登入</text>
+  <rect x="1010" y="5" width="50" height="20" rx="3" class="tag-red"/>
+  <text x="1035" y="18" text-anchor="middle" class="label-badge">註冊</text>
+  <text x="1072" y="19" class="label-sub">會員中心</text>
+  <text x="1130" y="19" class="label-sub">查訂單</text>
+</g>
+
+<!-- ② Header：Logo + Search + Cart -->
+<g id="header">
+  <rect x="0" y="30" width="1200" height="64" class="bg-header" stroke="#e8e8e8" stroke-width="0.8"/>
+  <text x="8" y="44" class="label-zone">② Header (Logo / Search Bar / Cart)</text>
+
+  <!-- Logo -->
+  <rect x="20" y="38" width="120" height="48" rx="6" class="bg-img"/>
+  <line x1="20" y1="38" x2="140" y2="86" class="placeholder-line"/>
+  <line x1="140" y1="38" x2="20" y2="86" class="placeholder-line"/>
+  <text x="80" y="67" text-anchor="middle" class="label-comp">LOGO</text>
+
+  <!-- Search bar -->
+  <rect x="200" y="43" width="760" height="38" rx="19" class="bg-white border-red"/>
+  <text x="420" y="66" class="label-sub">搜尋商品關鍵字…</text>
+  <rect x="920" y="43" width="80" height="38" rx="19" class="tag-red"/>
+  <text x="960" y="66" text-anchor="middle" class="label-badge">🔍 搜尋</text>
+
+  <!-- 猜你想搜 shortcut tags -->
+  <text x="1010" y="52" class="annotation">猜你想搜</text>
+  <rect x="1010" y="57" width="52" height="16" rx="8" fill="#f0f0f0"/>
+  <text x="1036" y="69" text-anchor="middle" class="annotation">除濕機</text>
+  <rect x="1070" y="57" width="42" height="16" rx="8" fill="#f0f0f0"/>
+  <text x="1091" y="69" text-anchor="middle" class="annotation">手機</text>
+
+  <!-- Cart -->
+  <rect x="1130" y="38" width="58" height="48" rx="6" class="bg-white" stroke="#ddd" stroke-width="0.8"/>
+  <text x="1159" y="59" text-anchor="middle" class="label-sub">🛒</text>
+  <text x="1159" y="75" text-anchor="middle" class="annotation">購物車(0)</text>
+</g>
+
+<!-- ③ Main Navigation Bar -->
+<g id="main-nav">
+  <rect x="0" y="94" width="1200" height="38" class="bg-nav" stroke="#eeeeee" stroke-width="0.8"/>
+  <text x="8" y="106" class="label-zone">③ Main Navigation Bar</text>
+  <!-- Nav items -->
+  <text x="20"  y="118" class="nav-item">美妝保養</text>
+  <line x1="90" y1="98" x2="90" y2="128" stroke="#eee" stroke-width="0.8"/>
+  <text x="98"  y="118" class="nav-item">流行服飾</text>
+  <line x1="168" y1="98" x2="168" y2="128" stroke="#eee" stroke-width="0.8"/>
+  <text x="176" y="118" class="nav-item">時尚精品</text>
+  <line x1="246" y1="98" x2="246" y2="128" stroke="#eee" stroke-width="0.8"/>
+  <text x="254" y="118" class="nav-item">3C</text>
+  <line x1="280" y1="98" x2="280" y2="128" stroke="#eee" stroke-width="0.8"/>
+  <text x="288" y="118" class="nav-item">數位家電</text>
+  <line x1="360" y1="98" x2="360" y2="128" stroke="#eee" stroke-width="0.8"/>
+  <text x="368" y="118" class="nav-item">生活用品</text>
+  <line x1="440" y1="98" x2="440" y2="128" stroke="#eee" stroke-width="0.8"/>
+  <text x="448" y="118" class="nav-item">美食</text>
+  <line x1="486" y1="98" x2="486" y2="128" stroke="#eee" stroke-width="0.8"/>
+  <text x="494" y="118" class="nav-item">旅遊票券</text>
+  <line x1="566" y1="98" x2="566" y2="128" stroke="#eee" stroke-width="0.8"/>
+  <text x="574" y="118" class="nav-item">書店</text>
+  <line x1="612" y1="98" x2="612" y2="128" stroke="#eee" stroke-width="0.8"/>
+  <text x="620" y="118" class="nav-item">品牌</text>
+  <line x1="658" y1="98" x2="658" y2="128" stroke="#eee" stroke-width="0.8"/>
+  <!-- right side highlight items -->
+  <rect x="680" y="100" width="80" height="26" rx="3" fill="#fff0f3"/>
+  <text x="720" y="117" text-anchor="middle" style="font-size:12px;fill:#D62872;font-weight:700;">mo點加碼</text>
+  <rect x="770" y="100" width="80" height="26" rx="3" fill="#fff3e0"/>
+  <text x="810" y="117" text-anchor="middle" style="font-size:12px;fill:#E65100;font-weight:700;">商店免運券</text>
+  <rect x="860" y="100" width="80" height="26" rx="3" fill="#f3e5f5"/>
+  <text x="900" y="117" text-anchor="middle" style="font-size:12px;fill:#6A1B9A;font-weight:700;">折價券</text>
+  <rect x="1080" y="100" width="110" height="26" rx="3" fill="#fff3e0"/>
+  <text x="1135" y="117" text-anchor="middle" style="font-size:12px;fill:#BF360C;font-weight:700;">🔥 今日限定特賣</text>
+</g>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     ZONE 2：HERO AREA
+     包含：④ Hero Banner Carousel、⑤ Sidebar Right Panels
+     ══════════════════════════════════════════════════════════ -->
+
+<!-- ④ Hero Banner Carousel (left) + Right Sidebar Panels -->
+<g id="hero-area">
+  <!-- 主 Banner 背景 -->
+  <rect x="0" y="132" width="1200" height="230" class="bg-banner"/>
+  <text x="8" y="145" class="label-zone">④ Hero Banner Carousel + 右側活動小卡</text>
+
+  <!-- Main Banner area -->
+  <rect x="0" y="132" width="820" height="230" fill="#d8d8d8" stroke="#ccc" stroke-width="0.8"/>
+  <line x1="0"   y1="132" x2="820" y2="362" class="placeholder-line"/>
+  <line x1="820" y1="132" x2="0"   y2="362" class="placeholder-line"/>
+  <text x="410" y="255" text-anchor="middle" class="label-comp">主視覺 Banner 圖片</text>
+  <text x="410" y="273" text-anchor="middle" class="label-sub">（輪播 Carousel）</text>
+
+  <!-- Carousel navigation arrows -->
+  <rect x="8"   y="228" width="32" height="32" rx="16" fill="rgba(0,0,0,0.25)"/>
+  <text x="24"  y="249" text-anchor="middle" style="font-size:18px;fill:white;">‹</text>
+  <rect x="780" y="228" width="32" height="32" rx="16" fill="rgba(0,0,0,0.25)"/>
+  <text x="796" y="249" text-anchor="middle" style="font-size:18px;fill:white;">›</text>
+
+  <!-- Carousel dots -->
+  <circle cx="390" cy="354" r="5" fill="#D62872"/>
+  <circle cx="406" cy="354" r="4" fill="rgba(0,0,0,0.2)"/>
+  <circle cx="420" cy="354" r="4" fill="rgba(0,0,0,0.2)"/>
+  <circle cx="434" cy="354" r="4" fill="rgba(0,0,0,0.2)"/>
+  <circle cx="448" cy="354" r="4" fill="rgba(0,0,0,0.2)"/>
+
+  <!-- Right sidebar panel area -->
+  <rect x="822" y="132" width="378" height="230" class="bg-white" stroke="#e0e0e0" stroke-width="0.8"/>
+
+  <!-- Top right: 今日入賞 promo panel -->
+  <rect x="825" y="135" width="370" height="70" rx="4" fill="#fff0f0" stroke="#f8c0c0" stroke-width="0.5"/>
+  <rect x="830" y="140" width="60" height="14" rx="3" class="tag-red"/>
+  <text x="860" y="151" text-anchor="middle" class="label-badge">今日入賞</text>
+  <text x="900" y="155" class="label-comp">限時活動小卡</text>
+  <text x="900" y="170" class="label-sub">商品圖 + 折扣資訊</text>
+  <rect x="825" y="158" width="64" height="44" rx="3" fill="#ddd"/>
+  <line x1="825" y1="158" x2="889" y2="202" class="placeholder-line"/>
+  <line x1="889" y1="158" x2="825" y2="202" class="placeholder-line"/>
+
+  <!-- Middle right: 3 activity banners -->
+  <rect x="825" y="210" width="370" height="48" rx="4" fill="#f9f9f9" stroke="#e8e8e8" stroke-width="0.5"/>
+  <text x="835" y="227" class="label-sub">活動入口 1</text>
+  <text x="835" y="245" class="label-sub">3C入手 雙倍回饋</text>
+  <rect x="825" y="210" width="118" height="48" rx="4" fill="#e8f4ff" stroke="#b8d8f8" stroke-width="0.5"/>
+  <rect x="947" y="210" width="122" height="48" rx="4" fill="#fff0f8" stroke="#f8c0d8" stroke-width="0.5"/>
+  <rect x="1073" y="210" width="122" height="48" rx="4" fill="#f0fff0" stroke="#b8e8b8" stroke-width="0.5"/>
+  <text x="884" y="234" text-anchor="middle" class="label-sub">3C入手</text>
+  <text x="884" y="248" text-anchor="middle" class="annotation">雙倍回饋</text>
+  <text x="1008" y="234" text-anchor="middle" class="label-sub">體感遊戲</text>
+  <text x="1008" y="248" text-anchor="middle" class="annotation">精選好物</text>
+  <text x="1134" y="234" text-anchor="middle" class="label-sub">熱銷美妝</text>
+  <text x="1134" y="248" text-anchor="middle" class="annotation">最高折300</text>
+
+  <!-- Bottom right: 2 smaller activity blocks -->
+  <rect x="825" y="263" width="182" height="96" rx="4" fill="#fff8e8" stroke="#f0d898" stroke-width="0.5"/>
+  <text x="916" y="290" text-anchor="middle" class="label-sub">活動小卡 A</text>
+  <text x="916" y="308" text-anchor="middle" class="annotation">傢居用品</text>
+  <text x="916" y="324" text-anchor="middle" class="annotation">最高折100</text>
+  <rect x="1011" y="263" width="182" height="96" rx="4" fill="#f8f0ff" stroke="#d0b8f0" stroke-width="0.5"/>
+  <text x="1102" y="290" text-anchor="middle" class="label-sub">活動小卡 B</text>
+  <text x="1102" y="308" text-anchor="middle" class="annotation">日用品組合</text>
+  <text x="1102" y="324" text-anchor="middle" class="annotation">最高折50</text>
+</g>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     ZONE 3：QUICK ACCESS ICONS
+     包含：⑤ 快速分類圖示列 (8~10 個)
+     ══════════════════════════════════════════════════════════ -->
+<g id="quick-icons">
+  <rect x="0" y="362" width="1200" height="82" class="bg-white" stroke="#eeeeee" stroke-width="0.8"/>
+  <text x="8" y="374" class="label-zone">⑤ Quick Access Icon Row（快速入口圖示列）</text>
+
+  <!-- 8 icon blocks evenly spaced -->
+  <rect x="20"  y="376" width="130" height="60" rx="5" fill="#fff8f8" stroke="#f0d0d0" stroke-width="0.5"/>
+  <rect x="48"  y="380" width="40" height="30" rx="4" fill="#e8c8c8"/>
+  <text x="85"  y="428" text-anchor="middle" class="label-sub">3C入手</text>
+
+  <rect x="162" y="376" width="130" height="60" rx="5" fill="#fff5ec" stroke="#f0d8c0" stroke-width="0.5"/>
+  <rect x="190" y="380" width="40" height="30" rx="4" fill="#e8d0b8"/>
+  <text x="227" y="428" text-anchor="middle" class="label-sub">體感遊戲</text>
+
+  <rect x="304" y="376" width="130" height="60" rx="5" fill="#f8f8ff" stroke="#d8d0f0" stroke-width="0.5"/>
+  <rect x="332" y="380" width="40" height="30" rx="4" fill="#d0c8e8"/>
+  <text x="369" y="428" text-anchor="middle" class="label-sub">熱銷美妝</text>
+
+  <rect x="446" y="376" width="130" height="60" rx="5" fill="#f8fff8" stroke="#c8e8c8" stroke-width="0.5"/>
+  <rect x="474" y="380" width="40" height="30" rx="4" fill="#b8e0b8"/>
+  <text x="511" y="428" text-anchor="middle" class="label-sub">好物推薦</text>
+
+  <rect x="588" y="376" width="130" height="60" rx="5" fill="#fffff0" stroke="#e8e8b0" stroke-width="0.5"/>
+  <rect x="616" y="380" width="40" height="30" rx="4" fill="#d8d898"/>
+  <text x="653" y="428" text-anchor="middle" class="label-sub">傢居用品</text>
+
+  <rect x="730" y="376" width="130" height="60" rx="5" fill="#fff0f8" stroke="#f0c8e0" stroke-width="0.5"/>
+  <rect x="758" y="380" width="40" height="30" rx="4" fill="#e8b8d0"/>
+  <text x="795" y="428" text-anchor="middle" class="label-sub">日用品組合</text>
+
+  <rect x="872" y="376" width="130" height="60" rx="5" fill="#f0f8ff" stroke="#b8d8f0" stroke-width="0.5"/>
+  <rect x="900" y="380" width="40" height="30" rx="4" fill="#a8c8e0"/>
+  <text x="937" y="428" text-anchor="middle" class="label-sub">mo幣兌換</text>
+
+  <rect x="1014" y="376" width="130" height="60" rx="5" fill="#f8f0ff" stroke="#d0b8f0" stroke-width="0.5"/>
+  <rect x="1042" y="380" width="40" height="30" rx="4" fill="#c0a8d8"/>
+  <text x="1079" y="428" text-anchor="middle" class="label-sub">折價券</text>
+
+  <!-- More arrow -->
+  <rect x="1154" y="396" width="30" height="24" rx="12" fill="#f0f0f0" stroke="#ddd" stroke-width="0.5"/>
+  <text x="1169" y="412" text-anchor="middle" class="annotation">›</text>
+</g>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     ZONE 4：PROMOTION BANNER STRIP
+     包含：⑥ 今日限定 超取免運 + 活動組合橫幅
+     ══════════════════════════════════════════════════════════ -->
+<g id="promo-strip">
+  <rect x="0" y="444" width="1200" height="64" fill="#ffeeee" stroke="#f0d0d0" stroke-width="0.8"/>
+  <text x="8" y="456" class="label-zone">⑥ Promotion Strip（今日限定 / 超取免運活動橫幅）</text>
+
+  <!-- Left big promo -->
+  <rect x="10" y="458" width="280" height="44" rx="5" fill="#D62872"/>
+  <text x="30" y="478" style="font-size:11px;fill:white;font-weight:700;">今日限定</text>
+  <text x="30" y="494" style="font-size:13px;fill:white;font-weight:700;">超取免運 $290↑免運</text>
+
+  <!-- Middle big promo -->
+  <rect x="300" y="458" width="580" height="44" rx="5" fill="#222"/>
+  <text x="380" y="474" style="font-size:11px;fill:#FFD700;font-weight:700;">再送 $1200</text>
+  <text x="380" y="492" style="font-size:13px;fill:white;font-weight:700;">mo幣 / 折價券回饋</text>
+
+  <!-- Right promo -->
+  <rect x="892" y="458" width="298" height="44" rx="5" fill="#8B0030"/>
+  <text x="920" y="474" style="font-size:11px;fill:white;font-weight:700;">葡萄王</text>
+  <text x="920" y="492" style="font-size:13px;fill:white;font-weight:700;">回饋最高 50%</text>
+</g>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     ZONE 5：PRODUCT SECTION 1 — 精選商品
+     包含：⑦ Section Header、⑧ Product Card Grid（5欄）
+     ══════════════════════════════════════════════════════════ -->
+<g id="product-section-1">
+  <!-- Section header -->
+  <rect x="0" y="508" width="1200" height="36" class="bg-white" stroke="#eeeeee" stroke-width="0.8"/>
+  <text x="8" y="520" class="label-zone">⑦ Section Header（商品區塊標題）</text>
+  <rect x="20" y="514" width="6" height="20" rx="2" class="tag-red"/>
+  <text x="34" y="529" class="label-comp">精選商品</text>
+  <text x="1140" y="529" class="label-sub">查看全部 ›</text>
+
+  <!-- Product grid row 1 — 5 cards × 2 rows -->
+  <rect x="0" y="544" width="1200" height="340" class="bg-white"/>
+  <text x="8" y="556" class="label-zone">⑧ Product Card Grid（商品卡片列表）</text>
+
+  <!-- Card component definition (repeat 5x) -->
+  <!-- Card 1 -->
+  <g id="card-1-1">
+    <rect x="20"  y="560" width="216" height="280" rx="6" class="bg-card border-card"/>
+    <rect x="28"  y="568" width="200" height="160" rx="4" class="bg-img"/>
+    <line x1="28"  y1="568" x2="228" y2="728" class="placeholder-line"/>
+    <line x1="228" y1="568" x2="28"  y2="728" class="placeholder-line"/>
+    <text x="128" y="652" text-anchor="middle" class="label-sub">商品圖片</text>
+    <rect x="28"  y="734" width="44" height="14" rx="3" class="tag-red"/>
+    <text x="50"  y="745" text-anchor="middle" class="label-badge">mo幣</text>
+    <rect x="28"  y="756" width="200" height="12" rx="2" fill="#eeeeee"/>
+    <rect x="28"  y="774" width="160" height="12" rx="2" fill="#eeeeee"/>
+    <text x="28"  y="810" class="price-text">$1,299</text>
+    <text x="90"  y="808" style="font-size:11px;fill:#aaa;text-decoration:line-through;">$1,980</text>
+    <rect x="28"  y="820" width="200" height="14" rx="3" fill="#fff0f3" stroke="#f0b0c0" stroke-width="0.5"/>
+    <text x="128" y="831" text-anchor="middle" style="font-size:10px;fill:#D62872;">免運條件說明</text>
+  </g>
+  <!-- Card 2 -->
+  <g id="card-1-2">
+    <rect x="248" y="560" width="216" height="280" rx="6" class="bg-card border-card"/>
+    <rect x="256" y="568" width="200" height="160" rx="4" class="bg-img"/>
+    <line x1="256" y1="568" x2="456" y2="728" class="placeholder-line"/>
+    <line x1="456" y1="568" x2="256" y2="728" class="placeholder-line"/>
+    <text x="356" y="652" text-anchor="middle" class="label-sub">商品圖片</text>
+    <rect x="256" y="734" width="52" height="14" rx="3" class="tag-orange"/>
+    <text x="282" y="745" text-anchor="middle" class="label-badge">特價</text>
+    <rect x="256" y="756" width="200" height="12" rx="2" fill="#eeeeee"/>
+    <rect x="256" y="774" width="150" height="12" rx="2" fill="#eeeeee"/>
+    <text x="256" y="810" class="price-text">$2,580</text>
+    <text x="318" y="808" style="font-size:11px;fill:#aaa;text-decoration:line-through;">$3,200</text>
+    <rect x="256" y="820" width="200" height="14" rx="3" fill="#fff0f3" stroke="#f0b0c0" stroke-width="0.5"/>
+    <text x="356" y="831" text-anchor="middle" style="font-size:10px;fill:#D62872;">免運條件說明</text>
+  </g>
+  <!-- Card 3 -->
+  <g id="card-1-3">
+    <rect x="476" y="560" width="216" height="280" rx="6" class="bg-card border-card"/>
+    <rect x="484" y="568" width="200" height="160" rx="4" class="bg-img"/>
+    <line x1="484" y1="568" x2="684" y2="728" class="placeholder-line"/>
+    <line x1="684" y1="568" x2="484" y2="728" class="placeholder-line"/>
+    <text x="584" y="652" text-anchor="middle" class="label-sub">商品圖片</text>
+    <rect x="484" y="734" width="52" height="14" rx="3" class="tag-purple"/>
+    <text x="510" y="745" text-anchor="middle" class="label-badge">贈品</text>
+    <rect x="484" y="756" width="200" height="12" rx="2" fill="#eeeeee"/>
+    <rect x="484" y="774" width="140" height="12" rx="2" fill="#eeeeee"/>
+    <text x="484" y="810" class="price-text">$899</text>
+    <text x="536" y="808" style="font-size:11px;fill:#aaa;text-decoration:line-through;">$1,200</text>
+    <rect x="484" y="820" width="200" height="14" rx="3" fill="#fff0f3" stroke="#f0b0c0" stroke-width="0.5"/>
+    <text x="584" y="831" text-anchor="middle" style="font-size:10px;fill:#D62872;">免運條件說明</text>
+  </g>
+  <!-- Card 4 -->
+  <g id="card-1-4">
+    <rect x="704" y="560" width="216" height="280" rx="6" class="bg-card border-card"/>
+    <rect x="712" y="568" width="200" height="160" rx="4" class="bg-img"/>
+    <line x1="712" y1="568" x2="912" y2="728" class="placeholder-line"/>
+    <line x1="912" y1="568" x2="712" y2="728" class="placeholder-line"/>
+    <text x="812" y="652" text-anchor="middle" class="label-sub">商品圖片</text>
+    <rect x="712" y="734" width="44" height="14" rx="3" class="tag-red"/>
+    <text x="734" y="745" text-anchor="middle" class="label-badge">mo幣</text>
+    <rect x="712" y="756" width="200" height="12" rx="2" fill="#eeeeee"/>
+    <rect x="712" y="774" width="170" height="12" rx="2" fill="#eeeeee"/>
+    <text x="712" y="810" class="price-text">$3,290</text>
+    <text x="782" y="808" style="font-size:11px;fill:#aaa;text-decoration:line-through;">$4,500</text>
+    <rect x="712" y="820" width="200" height="14" rx="3" fill="#fff0f3" stroke="#f0b0c0" stroke-width="0.5"/>
+    <text x="812" y="831" text-anchor="middle" style="font-size:10px;fill:#D62872;">免運條件說明</text>
+  </g>
+  <!-- Card 5 -->
+  <g id="card-1-5">
+    <rect x="932" y="560" width="248" height="280" rx="6" class="bg-card border-card"/>
+    <rect x="940" y="568" width="232" height="160" rx="4" class="bg-img"/>
+    <line x1="940" y1="568" x2="1172" y2="728" class="placeholder-line"/>
+    <line x1="1172" y1="568" x2="940" y2="728" class="placeholder-line"/>
+    <text x="1056" y="652" text-anchor="middle" class="label-sub">商品圖片</text>
+    <rect x="940" y="734" width="44" height="14" rx="3" class="tag-green"/>
+    <text x="962" y="745" text-anchor="middle" class="label-badge">新品</text>
+    <rect x="940" y="756" width="232" height="12" rx="2" fill="#eeeeee"/>
+    <rect x="940" y="774" width="180" height="12" rx="2" fill="#eeeeee"/>
+    <text x="940" y="810" class="price-text">$4,990</text>
+    <text x="1012" y="808" style="font-size:11px;fill:#aaa;text-decoration:line-through;">$6,800</text>
+    <rect x="940" y="820" width="232" height="14" rx="3" fill="#fff0f3" stroke="#f0b0c0" stroke-width="0.5"/>
+    <text x="1056" y="831" text-anchor="middle" style="font-size:10px;fill:#D62872;">免運條件說明</text>
+  </g>
+</g>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     ZONE 6：CATEGORY SHORTCUT TABS（分類快捷 icon 第二列）
+     包含：⑨ 秒殺 / 贈 / 限 / 抽…等小 icon tab
+     ══════════════════════════════════════════════════════════ -->
+<g id="category-tabs">
+  <rect x="0" y="884" width="1200" height="60" class="bg-white" stroke="#eeeeee" stroke-width="0.8"/>
+  <text x="8" y="896" class="label-zone">⑨ Category Shortcut Tabs（功能快捷 Tab 列：秒殺、贈品、限時等）</text>
+
+  <rect x="20"  y="900" width="80" height="36" rx="18" class="tag-red"/>
+  <text x="60"  y="922" text-anchor="middle" class="label-badge">秒殺</text>
+  <rect x="110" y="900" width="80" height="36" rx="18" fill="#FF6B35"/>
+  <text x="150" y="922" text-anchor="middle" class="label-badge">贈品</text>
+  <rect x="200" y="900" width="80" height="36" rx="18" fill="#8B4CF6"/>
+  <text x="240" y="922" text-anchor="middle" class="label-badge">限時</text>
+  <rect x="290" y="900" width="80" height="36" rx="18" fill="#0EA5E9"/>
+  <text x="330" y="922" text-anchor="middle" class="label-badge">抽</text>
+  <rect x="380" y="900" width="80" height="36" rx="18" fill="#10B981"/>
+  <text x="420" y="922" text-anchor="middle" class="label-badge">超取</text>
+  <rect x="470" y="900" width="80" height="36" rx="18" fill="#F59E0B"/>
+  <text x="510" y="922" text-anchor="middle" class="label-badge">折扣</text>
+  <rect x="560" y="900" width="80" height="36" rx="18" fill="#EC4899"/>
+  <text x="600" y="922" text-anchor="middle" class="label-badge">影音</text>
+  <rect x="650" y="900" width="80" height="36" rx="18" fill="#6366F1"/>
+  <text x="690" y="922" text-anchor="middle" class="label-badge">mo幣</text>
+</g>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     ZONE 7：ACTIVITY BANNER ROW
+     包含：⑩ 今特賣 WOW / 今日限定 / 大特輯…等 4 格橫幅
+     ══════════════════════════════════════════════════════════ -->
+<g id="activity-banners">
+  <rect x="0" y="944" width="1200" height="100" class="bg-white" stroke="#eeeeee" stroke-width="0.8"/>
+  <text x="8" y="956" class="label-zone">⑩ Activity Banner Row（今特賣 / WOW / 今日限定 / 大特輯 橫幅列）</text>
+
+  <rect x="10"  y="960" width="285" height="78" rx="6" fill="#ffe8e8" stroke="#f0c0c0" stroke-width="0.5"/>
+  <rect x="18"  y="965" width="60" height="60" rx="4" fill="#ddd"/>
+  <line x1="18"  y1="965" x2="78"  y2="1025" class="placeholder-line"/>
+  <line x1="78"  y1="965" x2="18"  y2="1025" class="placeholder-line"/>
+  <text x="100" y="985" class="label-comp">今特賣</text>
+  <text x="100" y="1000" class="label-sub">限時 $1200 折扣</text>
+  <text x="100" y="1015" class="annotation">滿額即享</text>
+
+  <rect x="305" y="960" width="285" height="78" rx="6" fill="#e8f8ff" stroke="#b8e0f0" stroke-width="0.5"/>
+  <rect x="313" y="965" width="60" height="60" rx="4" fill="#ddd"/>
+  <line x1="313" y1="965" x2="373" y2="1025" class="placeholder-line"/>
+  <line x1="373" y1="965" x2="313" y2="1025" class="placeholder-line"/>
+  <text x="395" y="985" class="label-comp">WOW</text>
+  <text x="395" y="1000" class="label-sub">伊藤潤 下單 555mo</text>
+  <text x="395" y="1015" class="annotation">今日最夯</text>
+
+  <rect x="600" y="960" width="285" height="78" rx="6" fill="#fff8e8" stroke="#f0e0b8" stroke-width="0.5"/>
+  <rect x="608" y="965" width="60" height="60" rx="4" fill="#ddd"/>
+  <line x1="608" y1="965" x2="668" y2="1025" class="placeholder-line"/>
+  <line x1="668" y1="965" x2="608" y2="1025" class="placeholder-line"/>
+  <text x="690" y="985" class="label-comp">今日限定</text>
+  <text x="690" y="1000" class="label-sub">智慧砂盒 特惠</text>
+  <text x="690" y="1015" class="annotation">每日換新</text>
+
+  <rect x="895" y="960" width="295" height="78" rx="6" fill="#f8e8ff" stroke="#e0b8f0" stroke-width="0.5"/>
+  <rect x="903" y="965" width="60" height="60" rx="4" fill="#ddd"/>
+  <line x1="903" y1="965" x2="963" y2="1025" class="placeholder-line"/>
+  <line x1="963" y1="965" x2="903" y2="1025" class="placeholder-line"/>
+  <text x="985" y="985" class="label-comp">大特輯</text>
+  <text x="985" y="1000" class="label-sub">DJI FLIP 雙電 下殺</text>
+  <text x="985" y="1015" class="annotation">限量供應</text>
+</g>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     ZONE 8：PRODUCT SECTION 2 — 每天享免運
+     包含：⑦ Section Header、商品卡片橫排 4欄 + 廣告側欄
+     ══════════════════════════════════════════════════════════ -->
+<g id="product-section-2">
+  <!-- Section header -->
+  <rect x="0" y="1044" width="1200" height="36" class="bg-white" stroke="#eeeeee" stroke-width="0.8"/>
+  <rect x="20" y="1050" width="6" height="20" rx="2" class="tag-red"/>
+  <text x="34" y="1066" class="label-comp">每天享免運（Section Header）</text>
+  <text x="1140" y="1066" class="label-sub">查看全部 ›</text>
+
+  <!-- Cards row (4 normal + 1 wide ad) -->
+  <rect x="0" y="1080" width="1200" height="190" class="bg-white"/>
+
+  <!-- 4 product cards -->
+  <rect x="10"  y="1088" width="220" height="176" rx="6" class="bg-card border-card"/>
+  <rect x="18"  y="1096" width="204" height="120" rx="4" class="bg-img"/>
+  <line x1="18"  y1="1096" x2="222" y2="1216" class="placeholder-line"/>
+  <line x1="222" y1="1096" x2="18"  y2="1216" class="placeholder-line"/>
+  <text x="120" y="1160" text-anchor="middle" class="label-sub">商品圖片</text>
+  <text x="18"  y="1238" class="price-text">$380</text>
+
+  <rect x="240" y="1088" width="220" height="176" rx="6" class="bg-card border-card"/>
+  <rect x="248" y="1096" width="204" height="120" rx="4" class="bg-img"/>
+  <line x1="248" y1="1096" x2="452" y2="1216" class="placeholder-line"/>
+  <line x1="452" y1="1096" x2="248" y2="1216" class="placeholder-line"/>
+  <text x="350" y="1160" text-anchor="middle" class="label-sub">商品圖片</text>
+  <text x="248" y="1238" class="price-text">$1,099</text>
+
+  <rect x="470" y="1088" width="220" height="176" rx="6" class="bg-card border-card"/>
+  <rect x="478" y="1096" width="204" height="120" rx="4" class="bg-img"/>
+  <line x1="478" y1="1096" x2="682" y2="1216" class="placeholder-line"/>
+  <line x1="682" y1="1096" x2="478" y2="1216" class="placeholder-line"/>
+  <text x="580" y="1160" text-anchor="middle" class="label-sub">商品圖片</text>
+  <text x="478" y="1238" class="price-text">$599</text>
+
+  <rect x="700" y="1088" width="220" height="176" rx="6" class="bg-card border-card"/>
+  <rect x="708" y="1096" width="204" height="120" rx="4" class="bg-img"/>
+  <line x1="708" y1="1096" x2="912" y2="1216" class="placeholder-line"/>
+  <line x1="912" y1="1096" x2="708" y2="1216" class="placeholder-line"/>
+  <text x="810" y="1160" text-anchor="middle" class="label-sub">商品圖片</text>
+  <text x="708" y="1238" class="price-text">$1,199</text>
+
+  <!-- Ad sidebar (brand logos grid) -->
+  <rect x="930" y="1088" width="260" height="176" rx="6" fill="#f8f8f8" stroke="#e8e8e8" stroke-width="0.5"/>
+  <text x="1060" y="1110" text-anchor="middle" class="label-sub">品牌入口 / 廣告側欄</text>
+  <rect x="940" y="1120" width="112" height="58" rx="4" class="bg-img"/>
+  <rect x="1068" y="1120" width="112" height="58" rx="4" class="bg-img"/>
+  <rect x="940" y="1188" width="112" height="58" rx="4" class="bg-img"/>
+  <rect x="1068" y="1188" width="112" height="58" rx="4" class="bg-img"/>
+  <text x="996" y="1153" text-anchor="middle" class="annotation">品牌 A</text>
+  <text x="1124" y="1153" text-anchor="middle" class="annotation">品牌 B</text>
+  <text x="996" y="1221" text-anchor="middle" class="annotation">品牌 C</text>
+  <text x="1124" y="1221" text-anchor="middle" class="annotation">品牌 D</text>
+</g>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     ZONE 9：加碼折扣 + PRODUCT SECTION 3
+     包含：⑪ Section Header + Tab Filter、商品卡片 5欄
+     ══════════════════════════════════════════════════════════ -->
+<g id="product-section-3">
+  <!-- Section header with tabs -->
+  <rect x="0" y="1270" width="1200" height="36" class="bg-white" stroke="#eeeeee" stroke-width="0.8"/>
+  <rect x="20" y="1276" width="6" height="20" rx="2" class="tag-red"/>
+  <text x="34" y="1291" class="label-comp">⑪ 加碼折扣（Section + Tab Filter）</text>
+  <!-- Tab filter buttons -->
+  <rect x="700" y="1278" width="60" height="22" rx="11" class="tag-red"/>
+  <text x="730" y="1293" text-anchor="middle" class="label-badge">熱銷</text>
+  <rect x="768" y="1278" width="60" height="22" rx="11" fill="none" stroke="#ddd" stroke-width="0.8"/>
+  <text x="798" y="1293" text-anchor="middle" class="label-sub">新品</text>
+  <rect x="836" y="1278" width="60" height="22" rx="11" fill="none" stroke="#ddd" stroke-width="0.8"/>
+  <text x="866" y="1293" text-anchor="middle" class="label-sub">特價</text>
+  <text x="1140" y="1291" class="label-sub">查看全部 ›</text>
+
+  <!-- Product cards row 3 (5 cards) -->
+  <rect x="0" y="1306" width="1200" height="230" class="bg-white"/>
+
+  <!-- Cards (lighter version) -->
+  <rect x="10"  y="1314" width="224" height="215" rx="6" class="bg-card border-card"/>
+  <rect x="18"  y="1322" width="208" height="140" rx="4" class="bg-img"/>
+  <line x1="18"  y1="1322" x2="226" y2="1462" class="placeholder-line"/>
+  <line x1="226" y1="1322" x2="18"  y2="1462" class="placeholder-line"/>
+  <text x="122" y="1396" text-anchor="middle" class="label-sub">商品圖片</text>
+  <rect x="18" y="1468" width="60" height="12" rx="2" fill="#eee"/>
+  <text x="18" y="1498" class="price-text">$14,900</text>
+
+  <rect x="244" y="1314" width="224" height="215" rx="6" class="bg-card border-card"/>
+  <rect x="252" y="1322" width="208" height="140" rx="4" class="bg-img"/>
+  <line x1="252" y1="1322" x2="460" y2="1462" class="placeholder-line"/>
+  <line x1="460" y1="1322" x2="252" y2="1462" class="placeholder-line"/>
+  <text x="356" y="1396" text-anchor="middle" class="label-sub">商品圖片</text>
+  <rect x="252" y="1468" width="60" height="12" rx="2" fill="#eee"/>
+  <text x="252" y="1498" class="price-text">$1,799</text>
+
+  <rect x="478" y="1314" width="224" height="215" rx="6" class="bg-card border-card"/>
+  <rect x="486" y="1322" width="208" height="140" rx="4" class="bg-img"/>
+  <line x1="486" y1="1322" x2="694" y2="1462" class="placeholder-line"/>
+  <line x1="694" y1="1322" x2="486" y2="1462" class="placeholder-line"/>
+  <text x="590" y="1396" text-anchor="middle" class="label-sub">商品圖片</text>
+  <rect x="486" y="1468" width="60" height="12" rx="2" fill="#eee"/>
+  <text x="486" y="1498" class="price-text">$2,388</text>
+
+  <rect x="712" y="1314" width="224" height="215" rx="6" class="bg-card border-card"/>
+  <rect x="720" y="1322" width="208" height="140" rx="4" class="bg-img"/>
+  <line x1="720" y1="1322" x2="928" y2="1462" class="placeholder-line"/>
+  <line x1="928" y1="1322" x2="720" y2="1462" class="placeholder-line"/>
+  <text x="824" y="1396" text-anchor="middle" class="label-sub">商品圖片</text>
+  <rect x="720" y="1468" width="60" height="12" rx="2" fill="#eee"/>
+  <text x="720" y="1498" class="price-text">$888</text>
+
+  <rect x="946" y="1314" width="244" height="215" rx="6" class="bg-card border-card"/>
+  <rect x="954" y="1322" width="228" height="140" rx="4" class="bg-img"/>
+  <line x1="954" y1="1322" x2="1182" y2="1462" class="placeholder-line"/>
+  <line x1="1182" y1="1322" x2="954" y2="1462" class="placeholder-line"/>
+  <text x="1068" y="1396" text-anchor="middle" class="label-sub">商品圖片</text>
+  <rect x="954" y="1468" width="60" height="12" rx="2" fill="#eee"/>
+  <text x="954" y="1498" class="price-text">$300</text>
+</g>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     ZONE 10：SCROLLING PROMO TICKER
+     包含：⑫ 滾動活動跑馬燈（轉轉樂 / 天天簽到）
+     ══════════════════════════════════════════════════════════ -->
+<g id="ticker-bar">
+  <rect x="0" y="1536" width="1200" height="50" fill="#1a1a2e" stroke="none"/>
+  <text x="8" y="1548" class="label-zone" style="fill:#aaa;">⑫ Promotion Ticker Bar（活動跑馬燈：轉轉樂 / 天天簽到）</text>
+  <rect x="20"  y="1550" width="280" height="28" rx="14" fill="#D62872"/>
+  <text x="160" y="1568" text-anchor="middle" class="label-badge">轉轉樂 最高 $388</text>
+  <rect x="320" y="1550" width="280" height="28" rx="14" fill="#F59E0B"/>
+  <text x="460" y="1568" text-anchor="middle" class="label-badge">天天簽到 免費抽 mo點</text>
+  <rect x="620" y="1550" width="280" height="28" rx="14" fill="#10B981"/>
+  <text x="760" y="1568" text-anchor="middle" class="label-badge">新會員 最高回饋</text>
+  <rect x="920" y="1550" width="260" height="28" rx="14" fill="#6366F1"/>
+  <text x="1050" y="1568" text-anchor="middle" class="label-badge">限定 App 下載折扣</text>
+</g>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     ZONE 11：PRODUCT SECTION 4 — 近來常客分眾推薦
+     包含：⑬ Section + 商品卡片
+     ══════════════════════════════════════════════════════════ -->
+<g id="product-section-4">
+  <rect x="0" y="1586" width="1200" height="36" class="bg-white" stroke="#eeeeee" stroke-width="0.8"/>
+  <rect x="20" y="1592" width="6" height="20" rx="2" class="tag-red"/>
+  <text x="34" y="1608" class="label-comp">⑬ 近來常客分眾推薦（個人化推薦區塊）</text>
+  <text x="1140" y="1608" class="label-sub">更多 ›</text>
+
+  <!-- 6 category shortcut tiles -->
+  <rect x="0" y="1622" width="1200" height="80" class="bg-white"/>
+  <rect x="10"  y="1630" width="188" height="66" rx="6" fill="#fff0f8" stroke="#f0c8e0" stroke-width="0.5"/>
+  <text x="104" y="1667" text-anchor="middle" class="label-sub">美容美妝</text>
+  <rect x="208" y="1630" width="188" height="66" rx="6" fill="#f0f8ff" stroke="#b8d8f0" stroke-width="0.5"/>
+  <text x="302" y="1667" text-anchor="middle" class="label-sub">家電優惠</text>
+  <rect x="406" y="1630" width="188" height="66" rx="6" fill="#f0fff0" stroke="#b8e8b8" stroke-width="0.5"/>
+  <text x="500" y="1667" text-anchor="middle" class="label-sub">MOMO加碼</text>
+  <rect x="604" y="1630" width="188" height="66" rx="6" fill="#fffff0" stroke="#e8e8b0" stroke-width="0.5"/>
+  <text x="698" y="1667" text-anchor="middle" class="label-sub">精選九折</text>
+  <rect x="802" y="1630" width="188" height="66" rx="6" fill="#fff8f0" stroke="#f0d8b8" stroke-width="0.5"/>
+  <text x="896" y="1667" text-anchor="middle" class="label-sub">生活洗沐</text>
+  <rect x="1000" y="1630" width="190" height="66" rx="6" fill="#f8f0ff" stroke="#d0b8f0" stroke-width="0.5"/>
+  <text x="1095" y="1667" text-anchor="middle" class="label-sub">3C精選</text>
+
+  <!-- Product cards row 4 (5 cards) -->
+  <rect x="0" y="1702" width="1200" height="230" class="bg-white"/>
+  <text x="8" y="1714" class="label-zone">⑭ 推薦商品列（Product Cards Row 4）</text>
+
+  <rect x="10"  y="1720" width="224" height="205" rx="6" class="bg-card border-card"/>
+  <rect x="18"  y="1728" width="208" height="130" rx="4" class="bg-img"/>
+  <line x1="18"  y1="1728" x2="226" y2="1858" class="placeholder-line"/>
+  <line x1="226" y1="1728" x2="18"  y2="1858" class="placeholder-line"/>
+  <text x="122" y="1797" text-anchor="middle" class="label-sub">商品圖片</text>
+  <rect x="18" y="1864" width="180" height="10" rx="2" fill="#eee"/>
+  <text x="18" y="1892" class="price-text">$32</text>
+
+  <rect x="244" y="1720" width="224" height="205" rx="6" class="bg-card border-card"/>
+  <rect x="252" y="1728" width="208" height="130" rx="4" class="bg-img"/>
+  <line x1="252" y1="1728" x2="460" y2="1858" class="placeholder-line"/>
+  <line x1="460" y1="1728" x2="252" y2="1858" class="placeholder-line"/>
+  <text x="356" y="1797" text-anchor="middle" class="label-sub">商品圖片</text>
+  <rect x="252" y="1864" width="180" height="10" rx="2" fill="#eee"/>
+  <text x="252" y="1892" class="price-text">$794</text>
+
+  <rect x="478" y="1720" width="224" height="205" rx="6" class="bg-card border-card"/>
+  <rect x="486" y="1728" width="208" height="130" rx="4" class="bg-img"/>
+  <line x1="486" y1="1728" x2="694" y2="1858" class="placeholder-line"/>
+  <line x1="694" y1="1728" x2="486" y2="1858" class="placeholder-line"/>
+  <text x="590" y="1797" text-anchor="middle" class="label-sub">商品圖片</text>
+  <rect x="486" y="1864" width="180" height="10" rx="2" fill="#eee"/>
+  <text x="486" y="1892" class="price-text">$1,288</text>
+
+  <rect x="712" y="1720" width="224" height="205" rx="6" class="bg-card border-card"/>
+  <rect x="720" y="1728" width="208" height="130" rx="4" class="bg-img"/>
+  <line x1="720" y1="1728" x2="928" y2="1858" class="placeholder-line"/>
+  <line x1="928" y1="1728" x2="720" y2="1858" class="placeholder-line"/>
+  <text x="824" y="1797" text-anchor="middle" class="label-sub">商品圖片</text>
+  <rect x="720" y="1864" width="180" height="10" rx="2" fill="#eee"/>
+  <text x="720" y="1892" class="price-text">$900</text>
+
+  <rect x="946" y="1720" width="244" height="205" rx="6" class="bg-card border-card"/>
+  <rect x="954" y="1728" width="228" height="130" rx="4" class="bg-img"/>
+  <line x1="954" y1="1728" x2="1182" y2="1858" class="placeholder-line"/>
+  <line x1="1182" y1="1728" x2="954" y2="1858" class="placeholder-line"/>
+  <text x="1068" y="1797" text-anchor="middle" class="label-sub">商品圖片</text>
+  <rect x="954" y="1864" width="180" height="10" rx="2" fill="#eee"/>
+  <text x="954" y="1892" class="price-text">$948</text>
+</g>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     ZONE 12：PRODUCT SECTION 5 — 持續捲動商品列
+     包含：⑮ 第五層商品卡片（5欄 × 2 rows）
+     ══════════════════════════════════════════════════════════ -->
+<g id="product-section-5">
+  <rect x="0" y="1932" width="1200" height="36" class="bg-white" stroke="#eeeeee" stroke-width="0.8"/>
+  <rect x="20" y="1938" width="6" height="20" rx="2" class="tag-red"/>
+  <text x="34" y="1954" class="label-comp">⑮ 持續推薦商品列（Infinite Product Grid）</text>
+
+  <!-- Row A (5 cards) -->
+  <rect x="0" y="1968" width="1200" height="230" class="bg-white"/>
+  <rect x="10"  y="1976" width="224" height="215" rx="6" class="bg-card border-card"/>
+  <rect x="18"  y="1984" width="208" height="135" rx="4" class="bg-img"/>
+  <line x1="18"  y1="1984" x2="226" y2="2119" class="placeholder-line"/>
+  <line x1="226" y1="1984" x2="18"  y2="2119" class="placeholder-line"/>
+  <text x="122" y="2055" text-anchor="middle" class="label-sub">商品圖片</text>
+  <rect x="18" y="2125" width="160" height="10" rx="2" fill="#eee"/>
+  <rect x="18" y="2141" width="130" height="10" rx="2" fill="#eee"/>
+  <text x="18" y="2168" class="price-text">$28,690</text>
+
+  <rect x="244" y="1976" width="224" height="215" rx="6" class="bg-card border-card"/>
+  <rect x="252" y="1984" width="208" height="135" rx="4" class="bg-img"/>
+  <line x1="252" y1="1984" x2="460" y2="2119" class="placeholder-line"/>
+  <line x1="460" y1="1984" x2="252" y2="2119" class="placeholder-line"/>
+  <text x="356" y="2055" text-anchor="middle" class="label-sub">商品圖片</text>
+  <rect x="252" y="2125" width="160" height="10" rx="2" fill="#eee"/>
+  <rect x="252" y="2141" width="130" height="10" rx="2" fill="#eee"/>
+  <text x="252" y="2168" class="price-text">$3,418</text>
+
+  <rect x="478" y="1976" width="224" height="215" rx="6" class="bg-card border-card"/>
+  <rect x="486" y="1984" width="208" height="135" rx="4" class="bg-img"/>
+  <line x1="486" y1="1984" x2="694" y2="2119" class="placeholder-line"/>
+  <line x1="694" y1="1984" x2="486" y2="2119" class="placeholder-line"/>
+  <text x="590" y="2055" text-anchor="middle" class="label-sub">商品圖片</text>
+  <rect x="486" y="2125" width="160" height="10" rx="2" fill="#eee"/>
+  <rect x="486" y="2141" width="130" height="10" rx="2" fill="#eee"/>
+  <text x="486" y="2168" class="price-text">$1,380</text>
+
+  <rect x="712" y="1976" width="224" height="215" rx="6" class="bg-card border-card"/>
+  <rect x="720" y="1984" width="208" height="135" rx="4" class="bg-img"/>
+  <line x1="720" y1="1984" x2="928" y2="2119" class="placeholder-line"/>
+  <line x1="928" y1="1984" x2="720" y2="2119" class="placeholder-line"/>
+  <text x="824" y="2055" text-anchor="middle" class="label-sub">商品圖片</text>
+  <rect x="720" y="2125" width="160" height="10" rx="2" fill="#eee"/>
+  <rect x="720" y="2141" width="130" height="10" rx="2" fill="#eee"/>
+  <text x="720" y="2168" class="price-text">$23,490</text>
+
+  <rect x="946" y="1976" width="244" height="215" rx="6" class="bg-card border-card"/>
+  <rect x="954" y="1984" width="228" height="135" rx="4" class="bg-img"/>
+  <line x1="954" y1="1984" x2="1182" y2="2119" class="placeholder-line"/>
+  <line x1="1182" y1="1984" x2="954" y2="2119" class="placeholder-line"/>
+  <text x="1068" y="2055" text-anchor="middle" class="label-sub">商品圖片</text>
+  <rect x="954" y="2125" width="160" height="10" rx="2" fill="#eee"/>
+  <rect x="954" y="2141" width="130" height="10" rx="2" fill="#eee"/>
+  <text x="954" y="2168" class="price-text">$3,418</text>
+
+  <!-- Row B (5 cards) -->
+  <rect x="0" y="2198" width="1200" height="230" class="bg-white"/>
+  <rect x="10"  y="2206" width="224" height="215" rx="6" class="bg-card border-card"/>
+  <rect x="18"  y="2214" width="208" height="135" rx="4" class="bg-img"/>
+  <line x1="18"  y1="2214" x2="226" y2="2349" class="placeholder-line"/>
+  <line x1="226" y1="2214" x2="18"  y2="2349" class="placeholder-line"/>
+  <text x="122" y="2285" text-anchor="middle" class="label-sub">商品圖片</text>
+  <text x="18"  y="2398" class="price-text">$1,390</text>
+
+  <rect x="244" y="2206" width="224" height="215" rx="6" class="bg-card border-card"/>
+  <rect x="252" y="2214" width="208" height="135" rx="4" class="bg-img"/>
+  <line x1="252" y1="2214" x2="460" y2="2349" class="placeholder-line"/>
+  <line x1="460" y1="2214" x2="252" y2="2349" class="placeholder-line"/>
+  <text x="356" y="2285" text-anchor="middle" class="label-sub">商品圖片</text>
+  <text x="252" y="2398" class="price-text">$26,439</text>
+
+  <rect x="478" y="2206" width="224" height="215" rx="6" class="bg-card border-card"/>
+  <rect x="486" y="2214" width="208" height="135" rx="4" class="bg-img"/>
+  <line x1="486" y1="2214" x2="694" y2="2349" class="placeholder-line"/>
+  <line x1="694" y1="2214" x2="486" y2="2349" class="placeholder-line"/>
+  <text x="590" y="2285" text-anchor="middle" class="label-sub">商品圖片</text>
+  <text x="486" y="2398" class="price-text">$10,690</text>
+
+  <rect x="712" y="2206" width="224" height="215" rx="6" class="bg-card border-card"/>
+  <rect x="720" y="2214" width="208" height="135" rx="4" class="bg-img"/>
+  <line x1="720" y1="2214" x2="928" y2="2349" class="placeholder-line"/>
+  <line x1="928" y1="2214" x2="720" y2="2349" class="placeholder-line"/>
+  <text x="824" y="2285" text-anchor="middle" class="label-sub">商品圖片</text>
+  <text x="720" y="2398" class="price-text">$6,100</text>
+
+  <rect x="946" y="2206" width="244" height="215" rx="6" class="bg-card border-card"/>
+  <rect x="954" y="2214" width="228" height="135" rx="4" class="bg-img"/>
+  <line x1="954" y1="2214" x2="1182" y2="2349" class="placeholder-line"/>
+  <line x1="1182" y1="2214" x2="954" y2="2349" class="placeholder-line"/>
+  <text x="1068" y="2285" text-anchor="middle" class="label-sub">商品圖片</text>
+  <text x="954" y="2398" class="price-text">$23,490</text>
+</g>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     ZONE 13：MEMBER / SERVICE QUICK BAR
+     包含：⑯ 會員快速入口條
+     ══════════════════════════════════════════════════════════ -->
+<g id="member-bar">
+  <rect x="0" y="2428" width="1200" height="54" fill="#fff5f8" stroke="#f0d0d8" stroke-width="0.8"/>
+  <text x="8" y="2440" class="label-zone">⑯ Member Service Bar（會員服務快速入口）</text>
+  <rect x="20"  y="2444" width="180" height="30" rx="5" class="tag-red"/>
+  <text x="110" y="2463" text-anchor="middle" class="label-badge">會員中心</text>
+  <rect x="210" y="2444" width="180" height="30" rx="5" fill="none" stroke="#D62872" stroke-width="1"/>
+  <text x="300" y="2463" text-anchor="middle" style="font-size:12px;fill:#D62872;">查訂單</text>
+  <rect x="400" y="2444" width="180" height="30" rx="5" fill="none" stroke="#D62872" stroke-width="1"/>
+  <text x="490" y="2463" text-anchor="middle" style="font-size:12px;fill:#D62872;">追蹤清單</text>
+  <rect x="590" y="2444" width="180" height="30" rx="5" fill="none" stroke="#D62872" stroke-width="1"/>
+  <text x="680" y="2463" text-anchor="middle" style="font-size:12px;fill:#D62872;">折價券</text>
+  <rect x="780" y="2444" width="180" height="30" rx="5" fill="none" stroke="#D62872" stroke-width="1"/>
+  <text x="870" y="2463" text-anchor="middle" style="font-size:12px;fill:#D62872;">登記活動</text>
+  <rect x="970" y="2444" width="210" height="30" rx="5" fill="none" stroke="#ddd" stroke-width="1"/>
+  <text x="1075" y="2463" text-anchor="middle" style="font-size:12px;fill:#888;">更多會員服務 ›</text>
+</g>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     ZONE 14：FOOTER
+     包含：⑰ Footer 多欄連結 + ⑱ Copyright Bar
+     ══════════════════════════════════════════════════════════ -->
+<g id="footer">
+  <rect x="0" y="2482" width="1200" height="200" class="bg-footer"/>
+  <text x="8" y="2494" class="label-zone" style="fill:#aaa;">⑰ Footer（多欄連結列）</text>
+
+  <!-- Footer link columns -->
+  <text x="40" y="2520" style="font-size:13px;fill:#ffffff;font-weight:700;">購物說明</text>
+  <rect x="40" y="2528" width="120" height="1" fill="#444"/>
+  <text x="40" y="2548" class="footer-text">購物流程</text>
+  <text x="40" y="2564" class="footer-text">折價券使用</text>
+  <text x="40" y="2580" class="footer-text">配送方式</text>
+  <text x="40" y="2596" class="footer-text">常見問題 FAQ</text>
+  <text x="40" y="2612" class="footer-text">聯絡我們</text>
+
+  <text x="240" y="2520" style="font-size:13px;fill:#ffffff;font-weight:700;">關於 momo</text>
+  <rect x="240" y="2528" width="120" height="1" fill="#444"/>
+  <text x="240" y="2548" class="footer-text">公司簡介</text>
+  <text x="240" y="2564" class="footer-text">媒體聯絡</text>
+  <text x="240" y="2580" class="footer-text">加入我們</text>
+  <text x="240" y="2596" class="footer-text">企業採購</text>
+
+  <text x="440" y="2520" style="font-size:13px;fill:#ffffff;font-weight:700;">服務條款</text>
+  <rect x="440" y="2528" width="120" height="1" fill="#444"/>
+  <text x="440" y="2548" class="footer-text">使用條款</text>
+  <text x="440" y="2564" class="footer-text">隱私政策</text>
+  <text x="440" y="2580" class="footer-text">Cookie 設定</text>
+  <text x="440" y="2596" class="footer-text">廣告合作</text>
+
+  <text x="640" y="2520" style="font-size:13px;fill:#ffffff;font-weight:700;">延伸服務</text>
+  <rect x="640" y="2528" width="120" height="1" fill="#444"/>
+  <text x="640" y="2548" class="footer-text">momo富立保險</text>
+  <text x="640" y="2564" class="footer-text">點點賺分潤</text>
+  <text x="640" y="2580" class="footer-text">mo店加</text>
+  <text x="640" y="2596" class="footer-text">直播購物</text>
+
+  <!-- Social / App download column -->
+  <text x="880" y="2520" style="font-size:13px;fill:#ffffff;font-weight:700;">下載 App / 追蹤社群</text>
+  <rect x="880" y="2528" width="180" height="1" fill="#444"/>
+  <rect x="880" y="2542" width="70" height="50" rx="6" fill="#333"/>
+  <text x="915" y="2562" text-anchor="middle" class="footer-text">App Store</text>
+  <text x="915" y="2578" text-anchor="middle" class="footer-text">QR Code</text>
+  <rect x="970" y="2542" width="70" height="50" rx="6" fill="#333"/>
+  <text x="1005" y="2562" text-anchor="middle" class="footer-text">Google Play</text>
+  <text x="1005" y="2578" text-anchor="middle" class="footer-text">QR Code</text>
+  <!-- Social icon row -->
+  <rect x="880" y="2604" width="32" height="32" rx="4" fill="#3b5998"/>
+  <text x="896" y="2624" text-anchor="middle" style="font-size:11px;fill:white;">fb</text>
+  <rect x="920" y="2604" width="32" height="32" rx="4" fill="#e1306c"/>
+  <text x="936" y="2624" text-anchor="middle" style="font-size:11px;fill:white;">ig</text>
+  <rect x="960" y="2604" width="32" height="32" rx="4" fill="#ff0000"/>
+  <text x="976" y="2624" text-anchor="middle" style="font-size:11px;fill:white;">yt</text>
+  <rect x="1000" y="2604" width="32" height="32" rx="4" fill="#00B900"/>
+  <text x="1016" y="2624" text-anchor="middle" style="font-size:11px;fill:white;">line</text>
+</g>
+
+<!-- ⑱ Copyright Bar -->
+<g id="copyright-bar">
+  <rect x="0" y="2682" width="1200" height="40" class="bg-copyright"/>
+  <text x="600" y="2707" text-anchor="middle" style="font-size:11px;fill:#888;">
+    © 富邦媒體科技股份有限公司（momo購物網）｜統一編號 12345678｜客服：02-1234-5678
+  </text>
+</g>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     FIXED UI ELEMENTS
+     包含：⑲ Back to Top Button、⑳ Floating Cart Mini
+     ══════════════════════════════════════════════════════════ -->
+<g id="fixed-ui">
+  <!-- Back to top -->
+  <rect x="1146" y="2620" width="48" height="48" rx="24" class="tag-red"/>
+  <text x="1170" y="2640" text-anchor="middle" style="font-size:14px;fill:white;">▲</text>
+  <text x="1170" y="2656" text-anchor="middle" style="font-size:10px;fill:white;">TOP</text>
+  <text x="1170" y="2674" text-anchor="middle" class="annotation">⑲ Back to Top</text>
+
+  <!-- Floating cart indicator -->
+  <rect x="1146" y="2560" width="48" height="48" rx="24" fill="#333"/>
+  <text x="1170" y="2580" text-anchor="middle" style="font-size:14px;fill:white;">🛒</text>
+  <text x="1170" y="2598" text-anchor="middle" style="font-size:10px;fill:white;">Cart</text>
+  <text x="1170" y="2616" text-anchor="middle" class="annotation">⑳ Floating Cart</text>
+</g>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     COMPONENT LEGEND / 元件圖例
+     ══════════════════════════════════════════════════════════ -->
+<g id="legend">
+  <rect x="0" y="2722" width="1200" height="670" fill="#fafafa" stroke="#e0e0e0" stroke-width="0.8"/>
+  <text x="600" y="2756" text-anchor="middle" style="font-size:18px;fill:#222;font-weight:700;">元件結構索引 — Component Index</text>
+  <line x1="40" y1="2764" x2="1160" y2="2764" stroke="#e0e0e0" stroke-width="0.8"/>
+
+  <!-- Zone A: Header -->
+  <rect x="40" y="2778" width="10" height="10" rx="2" fill="#D62872"/>
+  <text x="58" y="2788" class="label-comp">ZONE A — Header 區域</text>
+  <text x="58" y="2804" class="label-sub">① Utility Bar　② Header (Logo + Search + Cart)　③ Main Navigation Bar</text>
+
+  <!-- Zone B: Hero -->
+  <rect x="40" y="2822" width="10" height="10" rx="2" fill="#1A73C8"/>
+  <text x="58" y="2832" class="label-comp">ZONE B — Hero 主視覺區</text>
+  <text x="58" y="2848" class="label-sub">④ Hero Banner Carousel（主視覺輪播）＋ Prev/Next Arrow ＋ Dots Indicator</text>
+  <text x="58" y="2864" class="label-sub">　　右側：限時活動小卡 × 2 ＋ 活動入口 3 格 ＋ 底部 2 格廣告卡</text>
+
+  <!-- Zone C: Quick icons -->
+  <rect x="40" y="2878" width="10" height="10" rx="2" fill="#F59E0B"/>
+  <text x="58" y="2888" class="label-comp">ZONE C — 快速分類入口</text>
+  <text x="58" y="2904" class="label-sub">⑤ Quick Access Icon Row（8 個圖示＋更多箭頭）</text>
+
+  <!-- Zone D: Promo -->
+  <rect x="40" y="2918" width="10" height="10" rx="2" fill="#8B0030"/>
+  <text x="58" y="2928" class="label-comp">ZONE D — 促銷橫幅</text>
+  <text x="58" y="2944" class="label-sub">⑥ Promotion Strip（今日限定 / 超取免運 / 回饋活動）</text>
+
+  <!-- Zone E: Product sections -->
+  <rect x="40" y="2958" width="10" height="10" rx="2" fill="#2A9D4E"/>
+  <text x="58" y="2968" class="label-comp">ZONE E — 商品展示區（重複樣板）</text>
+  <text x="58" y="2984" class="label-sub">⑦ Section Header（標題 ＋ 「查看全部」按鈕）</text>
+  <text x="58" y="3000" class="label-sub">⑧ Product Card Grid（商品卡片，可複用）</text>
+  <text x="240" y="3000" class="annotation">   子元件：圖片佔位 ＋ 促銷標籤 ＋ 商品名稱 ＋ 評分 ＋ 價格 ＋ 原價刪除線 ＋ 免運條件 ＋ 加入購物車</text>
+  <text x="58" y="3016" class="label-sub">⑨ Category Shortcut Tabs（秒殺 / 贈品 / 限時 / 折扣…）</text>
+  <text x="58" y="3032" class="label-sub">⑩ Activity Banner Row（今特賣 / WOW / 今日限定 / 大特輯）</text>
+  <text x="58" y="3048" class="label-sub">⑪ Section Header ＋ Tab Filter（熱銷 ／ 新品 ／ 特價）</text>
+
+  <!-- Zone F: Ticker -->
+  <rect x="40" y="3066" width="10" height="10" rx="2" fill="#1a1a2e"/>
+  <text x="58" y="3076" class="label-comp">ZONE F — 活動跑馬燈</text>
+  <text x="58" y="3092" class="label-sub">⑫ Promotion Ticker Bar（轉轉樂 / 天天簽到 / 新會員優惠）</text>
+
+  <!-- Zone G: Personalized -->
+  <rect x="40" y="3106" width="10" height="10" rx="2" fill="#7B3FB0"/>
+  <text x="58" y="3116" class="label-comp">ZONE G — 個人化推薦</text>
+  <text x="58" y="3132" class="label-sub">⑬ 分眾推薦 Tiles（6 個分類捷徑卡片）</text>
+  <text x="58" y="3148" class="label-sub">⑭ 推薦商品列（Product Cards Row，個人化排序）</text>
+  <text x="58" y="3164" class="label-sub">⑮ 持續推薦商品列（Infinite Product Grid，2+ rows）</text>
+
+  <!-- Zone H: Footer -->
+  <rect x="40" y="3178" width="10" height="10" rx="2" fill="#222233"/>
+  <text x="58" y="3188" class="label-comp">ZONE H — 頁尾</text>
+  <text x="58" y="3204" class="label-sub">⑯ Member Service Bar（會員中心 / 查訂單 / 追蹤清單 / 折價券 / 登記活動）</text>
+  <text x="58" y="3220" class="label-sub">⑰ Footer（購物說明 ＋ 關於momo ＋ 服務條款 ＋ 延伸服務 ＋ 社群/App 下載）</text>
+  <text x="58" y="3236" class="label-sub">⑱ Copyright Bar（版權聲明）</text>
+
+  <!-- Zone I: Fixed UI -->
+  <rect x="40" y="3250" width="10" height="10" rx="2" fill="#555"/>
+  <text x="58" y="3260" class="label-comp">ZONE I — 固定浮動元件</text>
+  <text x="58" y="3276" class="label-sub">⑲ Back to Top Button（右下角，固定位置）　⑳ Floating Cart（浮動購物車提示）</text>
+
+  <line x1="40" y1="3294" x2="1160" y2="3294" stroke="#e0e0e0" stroke-width="0.8"/>
+  <text x="600" y="3316" text-anchor="middle" style="font-size:11px;fill:#aaa;">
+    此 wireframe 由截圖與公開頁面結構分析產生 · 僅供學術與教學用途 · 元件 id 均已標記方便修改
+  </text>
+  <text x="600" y="3334" text-anchor="middle" style="font-size:10px;fill:#bbb;">
+    SVG viewBox: 1200 × 3400 · 所有元件可直接在文字編輯器或 Figma / Illustrator 中修改
+  </text>
+</g>
+
+</svg>

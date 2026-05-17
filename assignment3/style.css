@@ -449,14 +449,48 @@ ul { list-style: none; }
   font-weight: 600;
   cursor: pointer;
   border: none;
-  transition: background .2s, opacity .2s;
+  transition: background 0.2s ease, transform 0.15s ease,
+              box-shadow 0.2s ease, opacity 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
-.btn-danger { background: #D62872; color: #fff; }
-.btn-danger:hover { background: #b8205e; }
-.btn-outline { background: #fff; color: #D62872; border: 1px solid #D62872; }
-.btn-outline:hover { background: #fff0f5; }
+
+/* hover：輕微上移 */
+.btn:hover { transform: translateY(-2px); }
+
+/* active（手指按下）：下壓回彈 */
+.btn:active { transform: translateY(0px) scale(0.97); }
+
+/* 主要 CTA：漸層背景 + 陰影 */
+.btn-danger {
+  background: linear-gradient(135deg, #e8306e 0%, #C0003C 100%);
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(192, 0, 60, 0.35);
+}
+.btn-danger:hover {
+  background: linear-gradient(135deg, #D62872 0%, #a80034 100%);
+  box-shadow: 0 5px 16px rgba(192, 0, 60, 0.45);
+}
+.btn-danger:active { box-shadow: 0 2px 6px rgba(192, 0, 60, 0.3); }
+
+/* outline */
+.btn-outline {
+  background: #fff;
+  color: #D62872;
+  border: 1px solid #D62872;
+}
+.btn-outline:hover {
+  background: #fff0f5;
+  box-shadow: 0 3px 10px rgba(214, 40, 114, 0.15);
+}
+
+/* ghost */
 .btn-ghost { background: #f5f5f5; color: #555; }
-.btn-ghost:hover { background: #eee; }
+.btn-ghost:hover {
+  background: #eee;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
 .btn-large { padding: 13px 30px; font-size: 14px; }
 .btn-full { width: 100%; }
 
@@ -553,17 +587,42 @@ ul { list-style: none; }
 }
 
 /* ── Modal ── */
+
+/* 遮罩淡入 */
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* 卡片由下往上滑入 */
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .modal-overlay {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.65);
+  background: rgba(0, 0, 0, 0.65);
   z-index: 9999;
   justify-content: center;
   align-items: center;
   padding: 20px;
 }
-.modal-overlay.active { display: flex; }
+.modal-overlay.active {
+  display: flex;
+  animation: overlayFadeIn 0.22s ease forwards;
+}
+.modal-overlay.active .modal-box {
+  animation: modalSlideUp 0.28s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+}
 
 .modal-box {
   background: #fff;
@@ -572,7 +631,7 @@ ul { list-style: none; }
   width: 100%;
   padding: 32px 28px;
   text-align: center;
-  box-shadow: 0 8px 40px rgba(0,0,0,.3);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
 }
 .modal-icon { font-size: 48px; margin-bottom: 12px; }
 .modal-box h2 {

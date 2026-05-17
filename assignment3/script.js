@@ -160,3 +160,26 @@ if (btnChat) btnChat.addEventListener('click', openModal);
     link.addEventListener('click', closeMenu);
   });
 })();
+
+
+// ── Back to Top ──
+(function initBackToTop() {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  // 捲動超過 300px 才顯示按鈕
+  const SHOW_THRESHOLD = 300;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > SHOW_THRESHOLD) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  }, { passive: true }); // passive: true 確保 iOS 捲動順暢不卡頓
+
+  // 點擊平滑捲回頂部
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();

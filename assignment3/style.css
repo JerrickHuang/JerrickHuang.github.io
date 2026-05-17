@@ -671,6 +671,57 @@ ul { list-style: none; }
 }
 
 /* =====================================================
+   Back to Top 按鈕
+   ===================================================== */
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 20px;
+  z-index: 800;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #D62872;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  box-shadow: 0 4px 14px rgba(214, 40, 114, 0.45);
+  /* 預設隱藏，JS 控制顯示 */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease,
+              background 0.2s ease, box-shadow 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  background: #b8205e;
+  box-shadow: 0 6px 18px rgba(214, 40, 114, 0.55);
+  transform: translateY(-2px);
+}
+.back-to-top:active { transform: translateY(0) scale(0.95); }
+.back-to-top svg {
+  width: 18px;
+  height: 18px;
+}
+.back-to-top span {
+  font-size: 9px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+/* =====================================================
    漢堡選單元件
    ===================================================== */
 

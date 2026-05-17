@@ -4,15 +4,579 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>momo購物網 - 訂單異常通知</title>
-  <!-- Favicon：SVG inline，粉紅底白字 m -->
+
+  <!--
+    Favicon：使用 SVG data URI inline 方式嵌入，不需要額外圖片檔案。
+    粉紅底（#D62872）白色「m」字，仿製 momo 品牌識別。
+  -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
     %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E
       %3Crect width='32' height='32' rx='6' fill='%23D62872'/%3E
       %3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle'
         font-family='Arial,sans-serif' font-weight='900' font-size='18' fill='white'%3Em%3C/text%3E
     %3C/svg%3E" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
+<body>
+
+  <!--
+    =====================================================
+    ZONE 1：UTILITY BAR（頂部工具列）
+    ─────────────────────────────────────────────────────
+    技術重點：Flexbox justify-content: space-between
+    詐騙手法：仿製真實網站的頂部導覽，建立視覺信任感
+    =====================================================
+  -->
+  <div class="utility-bar">
+    <div class="utility-inner">
+      <nav class="utility-links">
+        <a href="#">回首頁</a>
+        <a href="#">APP下載</a>
+        <a href="#">書店</a>
+      </nav>
+      <div class="utility-right">
+        <a href="#">登入</a>
+        <a href="#" class="btn-register">註冊</a>
+        <a href="#">會員中心</a>
+        <a href="#">查訂單</a>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    =====================================================
+    ZONE 2：HEADER（品牌標頭）
+    ─────────────────────────────────────────────────────
+    技術重點：Flexbox 三欄佈局（Logo | 搜尋列 | 購物車）
+    RWD：手機版顯示漢堡按鈕，搜尋按鈕縮為圖示
+    aria-label / aria-expanded：無障礙輔助屬性
+    詐騙手法：高度仿製品牌 Logo 與視覺，降低使用者警覺性
+    =====================================================
+  -->
+  <header class="header">
+    <div class="header-inner">
+
+      <!-- 漢堡按鈕：桌機隱藏（display:none），手機顯示（display:flex）
+           三條 <span> 用 CSS transform 動畫變形為 ✕ -->
+      <button type="button" class="hamburger" id="hamburger"
+        aria-label="開啟選單" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Logo：純 CSS 文字排版，不使用圖片 -->
+      <div class="logo">
+        <span class="logo-momo">momo</span>
+        <span class="logo-sub">購物網</span>
+      </div>
+
+      <!-- 搜尋列：flex 佈局，input flex:1 自動填滿剩餘空間 -->
+      <div class="search-bar">
+        <input type="text" placeholder="搜尋商品名稱或關鍵字" />
+        <button type="button">搜尋</button>
+      </div>
+
+      <!-- 購物車：手機版隱藏 .cart-label 文字，只保留圖示與數量 badge -->
+      <div class="cart-area">
+        <button type="button" class="cart-btn">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-label">購物車</span>
+          <span class="cart-count">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!--
+    =====================================================
+    ZONE 3：MAIN NAV（主分類導覽列）
+    ─────────────────────────────────────────────────────
+    技術重點：Flexbox 水平排列，overflow-x: auto 橫向捲動
+    桌機顯示，手機隱藏（display:none），改由 MOBILE NAV 取代
+    =====================================================
+  -->
+  <nav class="main-nav" id="main-nav">
+    <div class="nav-inner">
+      <a href="#">美妝保養</a>
+      <a href="#">流行服飾</a>
+      <a href="#">時尚精品</a>
+      <a href="#">3C</a>
+      <a href="#">數位家電</a>
+      <a href="#">生活用品</a>
+      <a href="#">美食</a>
+      <a href="#">旅遊票券</a>
+      <a href="#">書店</a>
+      <a href="#" class="nav-highlight">🔥 今日限定</a>
+    </div>
+  </nav>
+
+  <!--
+    =====================================================
+    ZONE 4：MOBILE NAV DRAWER（手機側滑選單）
+    ─────────────────────────────────────────────────────
+    技術重點：
+      - position: fixed，left: -280px 預設隱藏於畫面外
+      - .open class → left: 0 滑入，CSS transition 動畫
+      - overlay 半透明遮罩，點擊可關閉選單
+      - aria-hidden 控制無障礙狀態
+    =====================================================
+  -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <span class="mobile-nav-title">分類選單</span>
+      <button type="button" class="mobile-nav-close"
+        id="mobile-nav-close" aria-label="關閉選單">✕</button>
+    </div>
+    <a href="#">美妝保養</a>
+    <a href="#">流行服飾</a>
+    <a href="#">時尚精品</a>
+    <a href="#">3C</a>
+    <a href="#">數位家電</a>
+    <a href="#">生活用品</a>
+    <a href="#">美食</a>
+    <a href="#">旅遊票券</a>
+    <a href="#">書店</a>
+    <a href="#" class="nav-highlight">🔥 今日限定</a>
+  </nav>
+
+  <!--
+    =====================================================
+    ZONE 5：ALERT BANNER（警示橫幅）
+    ─────────────────────────────────────────────────────
+    技術重點：
+      - CSS Animation：bannerPulse（背景脈動）、iconShake（圖示搖擺）
+      - #timer：JavaScript 每秒更新，最後 60 秒加 .urgent class
+    詐騙手法：
+      - 製造緊迫感（「立即確認」「避免重複扣款」）
+      - 倒數計時器增加心理壓力，迫使使用者快速行動
+    =====================================================
+  -->
+  <div class="alert-banner">
+    <div class="alert-inner">
+      <span class="alert-icon">⚠️</span>
+      <div class="alert-text">
+        <strong>【重要通知】您的訂單發生異常，請立即確認</strong>
+        <span>系統偵測到您的訂單 #MO2024051700892 出現付款異常，為避免重複扣款，請儘速完成身份確認。</span>
+      </div>
+      <!-- #timer 由 script.js 的 startCountdown() 控制倒數 -->
+      <span class="alert-timer" id="countdown">剩餘時間：<b id="timer">09:59</b></span>
+    </div>
+  </div>
+
+  <!--
+    =====================================================
+    ZONE 6：MAIN CONTENT（主要內容區）
+    ─────────────────────────────────────────────────────
+    技術重點：CSS Grid 兩欄佈局
+      - .col-main（左，主欄）：訂單明細、收件資訊、付款表單
+      - .col-side（右側欄）：訂單進度、客服
+      - RWD 手機版：grid-template-columns: 1fr，右欄移到下方
+    =====================================================
+  -->
+  <main class="main-content">
+    <div class="page-container">
+
+      <!-- 麵包屑導覽：語意化路徑顯示，幫助使用者定位 -->
+      <div class="breadcrumb">
+        <a href="#">首頁</a> &rsaquo;
+        <a href="#">會員中心</a> &rsaquo;
+        <span>訂單查詢</span>
+      </div>
+
+      <!-- 頁面主標題：左側色條裝飾（border-left: 5px solid #D62872） -->
+      <h1 class="page-title">訂單異常處理</h1>
+
+      <!-- CSS Grid 兩欄主容器 -->
+      <div class="content-grid">
+
+        <!-- ─── 左主欄 ─── -->
+        <div class="col-main">
+
+          <!--
+            卡片 1：訂單明細
+            技術重點：HTML table 語意化表格結構
+              - <thead> / <tbody> 分離表頭與內容
+              - 手機版隱藏「單價」欄（CSS nth-child selector）
+              - inline SVG 圖示取代圖片，不依賴外部 URL
+            詐騙手法：偽造真實訂單資訊（品牌、型號、金額），提高可信度
+          -->
+          <section class="card" id="section-order">
+            <div class="card-header">
+              <h2>訂單明細</h2>
+              <span class="status-badge status-error">付款異常</span>
+            </div>
+            <table class="order-table">
+              <thead>
+                <tr>
+                  <th>商品名稱</th>
+                  <th>數量</th>
+                  <th>單價</th><!-- 手機版隱藏此欄 -->
+                  <th>小計</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="product-cell">
+                      <!-- 商品圖片佔位符：漸層背景 + inline SVG 圖示 -->
+                      <div class="product-img-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="2" y="5" width="20" height="9" rx="2" stroke="#555" stroke-width="1.5"/>
+                          <path d="M6 14v3M18 14v3M9 17h6" stroke="#555" stroke-width="1.5" stroke-linecap="round"/>
+                          <circle cx="17" cy="9.5" r="1" fill="#555"/>
+                          <path d="M5 9.5h8" stroke="#555" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <p class="product-name">Panasonic 國際牌 變頻冷暖冷氣 CS-UX28BDA2</p>
+                        <p class="product-sku">顏色：白色｜規格：標準安裝</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="center">1</td>
+                  <td class="center">$28,690</td>
+                  <td class="center price-red">$28,690</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="product-cell">
+                      <div class="product-img-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M7 8h10l-1 9H8L7 8z" stroke="#555" stroke-width="1.5" stroke-linejoin="round"/>
+                          <path d="M5 8h14" stroke="#555" stroke-width="1.5" stroke-linecap="round"/>
+                          <path d="M10 5c0-1 1-2 2-2s2 1 2 2" stroke="#555" stroke-width="1.5" stroke-linecap="round"/>
+                          <path d="M10 12h4" stroke="#555" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <p class="product-name">PHILIPS 飛利浦 氣炸鍋 HD9252</p>
+                        <p class="product-sku">顏色：黑色｜規格：4.1L</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="center">1</td>
+                  <td class="center">$3,290</td>
+                  <td class="center price-red">$3,290</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- 訂單金額摘要 -->
+            <div class="order-summary">
+              <div class="summary-row"><span>商品金額</span><span>$31,980</span></div>
+              <div class="summary-row"><span>運費</span><span class="price-green">免運費</span></div>
+              <div class="summary-row"><span>折扣優惠</span><span class="price-red">-$500</span></div>
+              <div class="summary-row total-row">
+                <span>應付總金額</span>
+                <span class="price-red">$31,480</span>
+              </div>
+            </div>
+          </section>
+
+          <!--
+            卡片 2：收件人資訊
+            技術重點：CSS Grid 兩欄 info-grid，手機版改為單欄
+            詐騙手法：顯示部分個資（模糊化），讓使用者誤以為網站已有其資料
+          -->
+          <section class="card" id="section-shipping">
+            <div class="card-header">
+              <h2>收件人資訊</h2>
+            </div>
+            <div class="info-grid">
+              <div class="info-item">
+                <label>收件人姓名</label>
+                <span>王○○</span>
+              </div>
+              <div class="info-item">
+                <label>聯絡電話</label>
+                <span>09XX-XXX-XXX</span>
+              </div>
+              <div class="info-item">
+                <label>收件地址</label>
+                <span>臺中市西屯區○○路○○號</span>
+              </div>
+              <div class="info-item">
+                <label>配送方式</label>
+                <span>宅配到府（預計 2–3 個工作天）</span>
+              </div>
+              <div class="info-item">
+                <label>訂單編號</label>
+                <span class="mono">#MO2024051700892</span>
+              </div>
+              <div class="info-item">
+                <label>訂單狀態</label>
+                <span class="status-badge status-error">付款異常 — 需要處理</span>
+              </div>
+            </div>
+          </section>
+
+          <!--
+            卡片 3：付款資料確認表單（核心釣魚元件）
+            ─────────────────────────────────────────
+            技術重點：
+              - novalidate：關閉瀏覽器預設驗證，由 JS 自訂處理
+              - autocomplete="off"：防止瀏覽器自動填入
+              - .form-row：CSS Grid 兩欄並排（手機版改單欄）
+            JS 互動（script.js）：
+              - 信用卡號自動補空格（xxxx xxxx xxxx xxxx）
+              - 有效期限自動補「/」（MM / YY）
+              - CVV 過濾非數字字元
+              - 身份證字號自動轉大寫
+            詐騙手法：
+              - 以「退款」「解除分期」為由誘導輸入完整信用卡資料
+              - 同時要求身份證字號，一次取得多項敏感個資
+              - 送出後觸發教育彈窗，不傳送任何實際資料
+          -->
+          <section class="card card-warning" id="section-payment">
+            <div class="card-header">
+              <h2>⚠️ 付款資料確認</h2>
+              <span class="status-badge status-warning">需立即處理</span>
+            </div>
+            <p class="warning-desc">
+              系統偵測到您的信用卡授權發生異常，可能導致<strong>重複扣款 $31,480</strong>。
+              請於時限內輸入付款資料，客服人員將協助您完成退款或解除分期。
+            </p>
+
+            <form id="payment-form" class="payment-form" novalidate>
+
+              <!-- 信用卡號：JS 自動格式化為 xxxx xxxx xxxx xxxx -->
+              <div class="form-group">
+                <label for="card-number">信用卡號碼</label>
+                <input type="text" id="card-number" name="card-number"
+                  placeholder="xxxx xxxx xxxx xxxx" maxlength="19" autocomplete="off" />
+                <p class="field-hint">請輸入您的 16 位信用卡號碼</p>
+              </div>
+
+              <!-- 有效期限 + CVV：form-row 並排，手機版變單欄 -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="card-expiry">有效期限</label>
+                  <input type="text" id="card-expiry" name="card-expiry"
+                    placeholder="MM / YY" maxlength="7" autocomplete="off" />
+                </div>
+                <div class="form-group">
+                  <label for="card-cvv">安全碼 CVV</label>
+                  <input type="text" id="card-cvv" name="card-cvv"
+                    placeholder="卡片背面 3 碼" maxlength="3" autocomplete="off" />
+                </div>
+              </div>
+
+              <!-- 持卡人姓名 -->
+              <div class="form-group">
+                <label for="card-name">持卡人姓名</label>
+                <input type="text" id="card-name" name="card-name"
+                  placeholder="請輸入與信用卡相同的姓名" autocomplete="off" />
+              </div>
+
+              <!-- 身份證字號：JS 自動轉大寫 -->
+              <div class="form-group">
+                <label for="id-number">身份證字號</label>
+                <input type="text" id="id-number" name="id-number"
+                  placeholder="A123456789" maxlength="10" autocomplete="off" />
+                <p class="field-hint">用於身份核實，確認持卡人資格</p>
+              </div>
+
+              <!--
+                按鈕組：Flexbox 水平排列，手機版改為垂直堆疊
+                所有按鈕點擊後皆觸發教育彈窗（openModal()）
+                type="submit" → form submit 事件 → e.preventDefault()
+                type="button" → 直接綁定 click 事件
+              -->
+              <div class="form-actions">
+                <button type="submit" class="btn btn-danger btn-large">
+                  確認送出，申請退款
+                </button>
+                <button type="button" class="btn btn-outline" id="btn-cancel">
+                  取消訂單
+                </button>
+                <button type="button" class="btn btn-ghost" id="btn-service">
+                  聯絡客服
+                </button>
+              </div>
+
+            </form>
+          </section>
+
+        </div><!-- /col-main -->
+
+        <!-- ─── 右側欄（手機版移到下方：order: 2） ─── -->
+        <div class="col-side">
+
+          <!--
+            卡片 4：訂單進度 Timeline
+            技術重點：
+              - <ul> + <li> 語意化列表
+              - CSS position: relative + ::after 偽元素繪製連接線
+              - 三種狀態 class：.timeline-done / .timeline-error / .timeline-pending
+            詐騙手法：偽造「已處理中」進度，製造訂單真實存在的假象
+          -->
+          <section class="card">
+            <div class="card-header"><h2>訂單進度</h2></div>
+            <ul class="timeline">
+              <li class="timeline-done">
+                <span class="tl-dot"></span>
+                <div>
+                  <p class="tl-title">訂單成立</p>
+                  <p class="tl-time">2024/05/17 14:32</p>
+                </div>
+              </li>
+              <li class="timeline-done">
+                <span class="tl-dot"></span>
+                <div>
+                  <p class="tl-title">付款處理中</p>
+                  <p class="tl-time">2024/05/17 14:33</p>
+                </div>
+              </li>
+              <li class="timeline-error">
+                <span class="tl-dot"></span>
+                <div>
+                  <p class="tl-title">付款異常偵測</p>
+                  <p class="tl-time">2024/05/17 14:35</p>
+                </div>
+              </li>
+              <li class="timeline-pending">
+                <span class="tl-dot"></span>
+                <div>
+                  <p class="tl-title">等待身份確認</p>
+                  <p class="tl-time">— 待處理 —</p>
+                </div>
+              </li>
+              <li class="timeline-pending">
+                <span class="tl-dot"></span>
+                <div>
+                  <p class="tl-title">退款完成</p>
+                  <p class="tl-time">—</p>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <!-- 卡片 5：客服專線（點擊觸發教育彈窗） -->
+          <section class="card">
+            <div class="card-header"><h2>客服專線</h2></div>
+            <div class="service-info">
+              <p class="service-phone">📞 02-XXXX-XXXX</p>
+              <p class="service-hours">服務時間：週一至週日 08:00–22:00</p>
+              <button type="button" class="btn btn-outline btn-full" id="btn-chat">
+                線上客服
+              </button>
+            </div>
+          </section>
+
+          <!-- 卡片 6：安全認證標章（詐騙手法：假冒 SSL 安全標章增加信任感） -->
+          <section class="card card-secure">
+            <p>🔒 本頁面使用 SSL 加密傳輸，保障您的個人資料安全。</p>
+          </section>
+
+        </div><!-- /col-side -->
+
+      </div><!-- /content-grid -->
+    </div><!-- /page-container -->
+  </main>
+
+  <!--
+    =====================================================
+    ZONE 7：FOOTER（頁尾）
+    ─────────────────────────────────────────────────────
+    技術重點：CSS Grid 四欄（repeat(4, 1fr)），手機版改為兩欄
+    .edu-note：金黃色教育聲明文字，標示本頁為課程作業
+    =====================================================
+  -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h3>購物說明</h3>
+        <a href="#">購物流程</a>
+        <a href="#">折價券使用</a>
+        <a href="#">配送方式</a>
+        <a href="#">常見問題 FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h3>關於 momo</h3>
+        <a href="#">公司簡介</a>
+        <a href="#">媒體聯絡</a>
+        <a href="#">加入我們</a>
+      </div>
+      <div class="footer-col">
+        <h3>服務條款</h3>
+        <a href="#">使用條款</a>
+        <a href="#">隱私政策</a>
+        <a href="#">Cookie 設定</a>
+      </div>
+      <div class="footer-col">
+        <h3>延伸服務</h3>
+        <a href="#">momo富立保險</a>
+        <a href="#">點點賺分潤</a>
+        <a href="#">直播購物</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 富邦媒體科技股份有限公司</p>
+      <p class="edu-note">⚠️ 本頁面為逢甲大學 Web 程式設計課程作業，僅供資安教育示範用途，不收集任何個人資料。</p>
+    </div>
+  </footer>
+
+  <!--
+    =====================================================
+    ZONE 8：EDUCATIONAL MODAL（教育說明彈窗）
+    ─────────────────────────────────────────────────────
+    技術重點：
+      - position: fixed，inset: 0 全螢幕遮罩
+      - display: none → display: flex（.active class 切換）
+      - CSS Animation：overlayFadeIn + modalSlideUp
+      - role="dialog" aria-modal="true"：無障礙 ARIA 屬性
+    觸發時機：任何表單送出或操作按鈕點擊
+    教育目的：揭露詐騙手法，說明本頁不收集任何資料
+    =====================================================
+  -->
+  <div class="modal-overlay" id="modal"
+    role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <div class="modal-icon">⚠️</div>
+      <h2 id="modal-title">這是釣魚詐騙網站示範</h2>
+      <p>您剛才操作的頁面是一個<strong>模擬釣魚詐騙網站</strong>。</p>
+      <p>真實的詐騙手法會：</p>
+      <ul>
+        <li>冒充知名購物平台寄送「訂單異常」通知</li>
+        <li>製造緊迫感（倒數計時、重複扣款威脅）</li>
+        <li>誘導輸入信用卡號、CVV、身份證字號</li>
+        <li>使用仿冒品牌視覺取得信任</li>
+      </ul>
+      <p class="modal-safe">✅ 本頁面為教育示範，<strong>不會收集或傳送任何資料</strong>。</p>
+      <p class="modal-course">逢甲大學資工學士後專班 · Web 程式設計課程作業</p>
+      <button type="button" class="btn btn-danger btn-full" id="modal-close">
+        我已了解，關閉說明
+      </button>
+    </div>
+  </div>
+
+  <!--
+    =====================================================
+    ZONE 9：BACK TO TOP BUTTON（回頂部按鈕）
+    ─────────────────────────────────────────────────────
+    技術重點：
+      - position: fixed，右下角固定
+      - 預設 opacity: 0 + visibility: hidden（隱藏）
+      - JS 捲動超過 300px → 加 .visible class → 淡入顯示
+      - scrollTo({ behavior: 'smooth' }) 平滑捲動
+    =====================================================
+  -->
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="回到頁面頂部">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 19V5M5 12l7-7 7 7" stroke="white" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>TOP</span>
+  </button>
+
+  <!-- script.js：所有互動邏輯（計時器、表單格式化、Modal、漢堡選單、Back to Top） -->
+  <script src="script.js"></script>
+</body>
+</html>
 <body>
 
   <!-- ===== UTILITY BAR ===== -->

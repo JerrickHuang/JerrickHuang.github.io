@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Jerrick Huang — Computer Science student building practical web applications, backend systems, and data visualizations."
+    />
+    <meta name="theme-color" content="#2b2b2b" />
+    <title>Jerrick Huang | Software Engineering Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Jerrick Huang home">
+        <span class="brand-mark">JH</span>
+        <span>Jerrick Huang</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <a href="#about" data-en="About" data-zh="關於我">About</a>
+        <a href="#projects" data-en="Projects" data-zh="專案">Projects</a>
+        <a href="#skills" data-en="Skills" data-zh="技能">Skills</a>
+        <a href="#contact" data-en="Contact" data-zh="聯絡">Contact</a>
+      </nav>
+
+      <button class="language-toggle" type="button" aria-label="Switch language">
+        <span class="language-en">中</span>
+        <span class="language-zh">EN</span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span data-en="Based in Taiwan · Building in public" data-zh="位於臺灣 · 持續公開學習與開發">
+              Based in Taiwan · Building in public
+            </span>
+          </p>
+          <h1>
+            <span data-en="Hi, I’m Jerrick Huang." data-zh="嗨，我是 Jerrick Huang。">
+              Hi, I’m Jerrick Huang.
+            </span>
+          </h1>
+          <p class="hero-role">
+            <span
+              data-en="Computer Science Student &amp; Aspiring Software Engineer"
+              data-zh="資訊工程學生／軟體工程師職涯準備中"
+            >
+              Computer Science Student &amp; Aspiring Software Engineer
+            </span>
+          </p>
+          <p class="hero-intro">
+            <span
+              data-en="I build practical web applications with a focus on backend development, data visualization, and maintainable software design."
+              data-zh="我專注於開發實用的 Web 應用程式，並持續累積後端系統、資料視覺化與可維護軟體設計的實作經驗。"
+            >
+              I build practical web applications with a focus on backend
+              development, data visualization, and maintainable software design.
+            </span>
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">
+              <span data-en="View My Projects" data-zh="查看精選專案">View My Projects</span>
+            </a>
+            <a
+              class="button button-secondary"
+              href="https://github.com/JerrickHuang"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span data-en="Visit GitHub" data-zh="前往 GitHub">Visit GitHub</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-panel" aria-label="Current engineering focus">
+          <div class="terminal-bar">
+            <span></span><span></span><span></span>
+            <p>portfolio/current-focus.txt</p>
+          </div>
+          <div class="terminal-content">
+            <p><span class="prompt">$</span> current_focus</p>
+            <ul>
+              <li>Full-stack web applications</li>
+              <li>Transparent data visualization</li>
+              <li>Reliable backend systems</li>
+              <li>Testing &amp; application security</li>
+            </ul>
+            <p class="terminal-status">
+              <span class="status-dot"></span>
+              <span data-en="Learning, building, improving." data-zh="持續學習、開發與改進。">
+                Learning, building, improving.
+              </span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about" id="about">
+        <div class="section-heading">
+          <p class="section-number">01</p>
+          <h2 data-en="About" data-zh="關於我">About</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p
+              data-en="I am a post-baccalaureate Computer Science student at Feng Chia University in Taiwan. My current work focuses on transforming academic assignments into complete, demonstrable software projects with clear documentation, reliable data, and thoughtful engineering decisions."
+              data-zh="我目前就讀臺灣逢甲大學資訊工程學系學士後專班。現階段的學習重點，是將課程作業逐步發展為內容完整、可以執行與展示，並具備清楚文件、可靠資料及合理工程設計的軟體專案。"
+            >
+              I am a post-baccalaureate Computer Science student at Feng Chia
+              University in Taiwan. My current work focuses on transforming
+              academic assignments into complete, demonstrable software projects
+              with clear documentation, reliable data, and thoughtful engineering
+              decisions.
+            </p>
+            <p
+              data-en="I am continuously improving my skills through hands-on development and building a portfolio that reflects both technical growth and professional software engineering practices."
+              data-zh="我持續透過實作強化技術能力，建立一份能同時呈現學習成長與專業軟體工程實踐的作品集。"
+            >
+              I am continuously improving my skills through hands-on development
+              and building a portfolio that reflects both technical growth and
+              professional software engineering practices.
+            </p>
+          </div>
+          <blockquote>
+            <p
+              data-en="I care about building software that is understandable, testable, and honest about its data, limitations, and development status."
+              data-zh="我重視軟體的可理解性、可測試性與可維護性，也會誠實說明資料來源、系統限制及專案目前的完成程度。"
+            >
+              I care about building software that is understandable, testable,
+              and honest about its data, limitations, and development status.
+            </p>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-heading">
+          <p class="section-number">02</p>
+          <h2 data-en="Featured Projects" data-zh="精選專案">Featured Projects</h2>
+          <p
+            data-en="Selected work that shows where I am now—and what I am improving next."
+            data-zh="這些作品呈現我目前的實作能力，以及接下來正在改進的方向。"
+          >
+            Selected work that shows where I am now—and what I am improving next.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card project-featured">
+            <div class="project-topline">
+              <span class="project-index">01</span>
+              <span class="status status-active">Flagship · In Development</span>
+            </div>
+            <h3>Taiwan Chicken Cutlet Price Tracker</h3>
+            <p
+              data-en="A full-stack web application for exploring historical chicken cutlet prices in Taiwan. It combines an Express.js API, SQLite database, interactive visualization, source references, and specification-driven development."
+              data-zh="探索臺灣雞排歷年價格變化的全端 Web 應用程式，整合 Express.js API、SQLite、互動式資料視覺化、資料來源標註及規格驅動開發流程。"
+            >
+              A full-stack web application for exploring historical chicken cutlet
+              prices in Taiwan. It combines an Express.js API, SQLite database,
+              interactive visualization, source references, and
+              specification-driven development.
+            </p>
+            <ul class="project-highlights">
+              <li>Historical price search and filtering</li>
+              <li>Interactive price visualization</li>
+              <li>REST API, SQLite, and Azure workflow</li>
+            </ul>
+            <div class="tag-list">
+              <span>Node.js</span><span>Express</span><span>SQLite</span><span>Azure</span>
+            </div>
+            <a
+              class="text-link"
+              href="https://github.com/JerrickHuang/taiwan-chicken-cutlet-price-tracker"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View source <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-topline">
+              <span class="project-index">02</span>
+              <span class="status status-revision">Data Revision</span>
+            </div>
+            <h3>Taiwan Salary Distribution Explorer</h3>
+            <p
+              data-en="An interactive educational tool for exploring salary distributions and understanding the difference between mean, median, percentile, and skewed data."
+              data-zh="透過互動操作與視覺化，協助使用者理解薪資分布、平均數、中位數、百分位數及偏態資料的統計教育工具。"
+            >
+              An interactive educational tool for exploring salary distributions
+              and understanding the difference between mean, median, percentile,
+              and skewed data.
+            </p>
+            <ul class="project-highlights">
+              <li>Interactive salary controls</li>
+              <li>Distribution and percentile visualization</li>
+              <li>Mean and median comparison</li>
+            </ul>
+            <div class="tag-list">
+              <span>JavaScript</span><span>Canvas API</span><span>Statistics</span>
+            </div>
+            <a
+              class="text-link"
+              href="https://github.com/JerrickHuang/salary-demo"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View source <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-topline">
+              <span class="project-index">03</span>
+              <span class="status status-refactor">Rebranding &amp; Refactoring</span>
+            </div>
+            <h3>Interactive Service Status Page</h3>
+            <p
+              data-en="An experimental interactive status page that combines service notifications, countdown interactions, particle effects, sound, and a browser-based mini-game."
+              data-zh="結合服務狀態通知、倒數互動、粒子效果、音效與瀏覽器小遊戲的互動式網頁實驗作品。"
+            >
+              An experimental interactive status page that combines service
+              notifications, countdown interactions, particle effects, sound, and
+              a browser-based mini-game.
+            </p>
+            <ul class="project-highlights">
+              <li>Canvas animation and particle effects</li>
+              <li>Browser mini-game and scoring</li>
+              <li>Responsive interaction experiments</li>
+            </ul>
+            <div class="tag-list">
+              <span>JavaScript</span><span>Canvas API</span><span>Web Audio</span>
+            </div>
+            <a
+              class="text-link"
+              href="https://github.com/JerrickHuang/netflix-waiting-page"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View current source <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="section-heading">
+          <p class="section-number">03</p>
+          <h2 data-en="Technical Skills" data-zh="技術能力">Technical Skills</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <p>Languages</p>
+            <h3>JavaScript · HTML · CSS · SQL</h3>
+          </div>
+          <div class="skill-group">
+            <p>Backend &amp; Data</p>
+            <h3>Node.js · Express · SQLite · REST APIs</h3>
+          </div>
+          <div class="skill-group">
+            <p>Frontend</p>
+            <h3>Responsive Design · Canvas · Data Visualization</h3>
+          </div>
+          <div class="skill-group">
+            <p>Tools &amp; Workflow</p>
+            <h3>Git · GitHub · Azure · OpenSpec</h3>
+          </div>
+          <div class="skill-group skill-learning">
+            <p data-en="Currently Learning" data-zh="目前正在學習">Currently Learning</p>
+            <h3>Swift · SwiftUI · Testing · Application Security</h3>
+          </div>
+        </div>
+        <p
+          class="skills-note"
+          data-en="This list reflects technologies I have used in projects or am actively learning; it does not imply equal proficiency across every item."
+          data-zh="技能清單反映目前具備實作經驗或正在學習的技術，不代表對所有技術皆已達到相同熟練程度。"
+        >
+          This list reflects technologies I have used in projects or am actively
+          learning; it does not imply equal proficiency across every item.
+        </p>
+      </section>
+
+      <section class="section" id="approach">
+        <div class="section-heading">
+          <p class="section-number">04</p>
+          <h2 data-en="Engineering Approach" data-zh="工程實踐">Engineering Approach</h2>
+        </div>
+        <div class="approach-grid">
+          <article>
+            <span>01</span>
+            <h3 data-en="Build from clear requirements" data-zh="從清楚的需求開始">
+              Build from clear requirements
+            </h3>
+            <p
+              data-en="I translate project goals into documented requirements, implementation tasks, and verifiable outcomes."
+              data-zh="我將專案目標轉化為有文件記錄的需求、實作任務與可驗證成果。"
+            >
+              I translate project goals into documented requirements,
+              implementation tasks, and verifiable outcomes.
+            </p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3 data-en="Keep data transparent" data-zh="維持資料透明度">
+              Keep data transparent
+            </h3>
+            <p
+              data-en="I distinguish observed data from estimates and document sources, assumptions, and limitations."
+              data-zh="我區分觀測資料與推估資料，並記錄來源、假設與限制。"
+            >
+              I distinguish observed data from estimates and document sources,
+              assumptions, and limitations.
+            </p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3 data-en="Design for maintainability" data-zh="以可維護性為設計目標">
+              Design for maintainability
+            </h3>
+            <p
+              data-en="I aim for readable structure, meaningful commits, validation, testing, and documentation that supports future development."
+              data-zh="我重視清楚的程式結構、有意義的 commits、輸入驗證、測試，以及支援後續開發的文件。"
+            >
+              I aim for readable structure, meaningful commits, validation,
+              testing, and documentation that supports future development.
+            </p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3 data-en="Improve through iteration" data-zh="透過迭代持續改進">
+              Improve through iteration
+            </h3>
+            <p
+              data-en="I treat academic projects as starting points, then refine their architecture, reliability, accessibility, and presentation."
+              data-zh="我將課程專案視為起點，再逐步改進架構、可靠性、無障礙與呈現方式。"
+            >
+              I treat academic projects as starting points, then refine their
+              architecture, reliability, accessibility, and presentation.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <p class="section-number">05</p>
+        <h2 data-en="Let’s Connect" data-zh="歡迎與我聯絡">Let’s Connect</h2>
+        <p
+          data-en="I am currently building my software engineering portfolio and welcome conversations about graduate study, internships, and entry-level software development opportunities."
+          data-zh="我目前正在建立軟體工程作品集，也歡迎與我交流研究所進修、實習及初階軟體開發職涯機會。"
+        >
+          I am currently building my software engineering portfolio and welcome
+          conversations about graduate study, internships, and entry-level
+          software development opportunities.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:jerrick.huang.dev@gmail.com">
+            jerrick.huang.dev@gmail.com <span aria-hidden="true">↗</span>
+          </a>
+          <a href="https://github.com/JerrickHuang" target="_blank" rel="noreferrer">
+            github.com/JerrickHuang <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="year"></span> Jerrick Huang</p>
+      <p data-en="Designed and built with care." data-zh="用心設計與開發。">
+        Designed and built with care.
+      </p>
+    </footer>
+  </body>
+</html>

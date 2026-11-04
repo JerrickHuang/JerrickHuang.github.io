@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jerrick Huang — Resume</title>
+<meta name="description" content="Resume of Jerrick (Chi-Lin) Huang, post-baccalaureate Computer Science student at Feng Chia University and aspiring software engineer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16181d;--body:#3a3f4a;--muted:#6b7280;--line:#e5e7eb;--bg:#eef1f5;--paper:#fff;
+  --blue:#2f6fe4;--green:#16a06b;--amber:#d98a1c;--red:#e0483e;--violet:#7a5af0;
+  --blue-s:#eaf1fd;--green-s:#e7f6ef;--amber-s:#fcf2e3;--violet-s:#f0ecfe;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;--sans:"DM Sans",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--body);font:15px/1.55 var(--sans)}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--blue)}
+
+.toolbar{max-width:900px;margin:0 auto;padding:20px 16px 12px;display:flex;justify-content:space-between;gap:12px;font:500 13px var(--mono)}
+.toolbar a{padding:8px 14px;border-radius:8px;border:1px solid var(--line);background:var(--paper)}
+.toolbar .pdf{background:var(--ink);color:#fff;border-color:var(--ink)}
+.toolbar .pdf:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+
+.paper{max-width:900px;margin:0 auto 48px;background:var(--paper);border-radius:14px;box-shadow:0 1px 2px rgba(16,24,40,.06),0 12px 40px rgba(16,24,40,.08);overflow:hidden}
+.stripe{height:6px;background:linear-gradient(90deg,var(--blue) 0 25%,var(--red) 25% 50%,var(--amber) 50% 75%,var(--green) 75%)}
+
+header{padding:36px 44px 26px;border-bottom:1px solid var(--line)}
+h1{margin:0;color:var(--ink);font-size:34px;line-height:1.15;letter-spacing:-.02em}
+h1 small{font-weight:500;color:var(--muted);font-size:.6em;letter-spacing:0}
+.role{margin:6px 0 16px;font:500 13.5px var(--mono);color:var(--blue)}
+.contact{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0;padding:0;list-style:none;font-size:14px}
+.contact li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:8px;vertical-align:2px;background:var(--c)}
+
+.grid{display:grid;grid-template-columns:1fr 250px}
+main{padding:28px 36px 36px 44px}
+aside{padding:28px 32px 36px 28px;background:#f8f9fb;border-left:1px solid var(--line)}
+
+h2{margin:0 0 14px;font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px}
+h2::before{content:"";width:14px;height:3px;border-radius:2px;background:var(--c,var(--blue))}
+section+section{margin-top:28px}
+
+.summary{margin:0;color:var(--body)}
+.entry{margin-bottom:18px}
+.entry:last-child{margin-bottom:0}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+h3{margin:0;font-size:15.5px;color:var(--ink);font-weight:600}
+.date{flex:none;font:12.5px var(--mono);color:var(--muted)}
+.sub{margin:1px 0 0;font-size:14px;color:var(--muted)}
+.sub b{color:var(--body);font-weight:500}
+ul.pts{margin:7px 0 0;padding-left:18px}
+ul.pts li{margin:3px 0}
+ul.pts li::marker{color:var(--c,var(--blue))}
+
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 0;padding:0;list-style:none}
+.tags li{font:500 11.5px var(--mono);padding:2px 8px;border-radius:5px;background:var(--s);color:var(--c)}
+.t-b{--c:var(--blue);--s:var(--blue-s)}.t-g{--c:var(--green);--s:var(--green-s)}
+.t-a{--c:var(--amber);--s:var(--amber-s)}.t-v{--c:var(--violet);--s:var(--violet-s)}
+.badge{display:inline-block;margin-left:6px;font:500 10.5px var(--mono);padding:1px 7px;border-radius:10px;background:var(--amber-s);color:var(--amber);vertical-align:2px}
+.link{display:inline-block;margin-top:6px;font:12.5px var(--mono);color:var(--blue)}
+.link.muted{color:var(--muted)}
+
+.edu .entry{margin-bottom:12px}
+.earlier{margin:12px 0 0;font-size:13.5px;color:var(--muted)}
+
+aside section+section{margin-top:24px}
+.skill{margin-bottom:12px}
+.skill h4{margin:0 0 5px;font-size:13px;color:var(--ink);font-weight:600}
+.skill .tags{margin:0}
+.mini{list-style:none;margin:0;padding:0;font-size:13.5px}
+.mini li{margin-bottom:10px}
+.mini b{display:block;color:var(--ink);font-weight:600}
+.mini span{color:var(--muted);font-size:12.5px}
+
+footer{padding:14px 44px;border-top:1px solid var(--line);font:12px var(--mono);color:var(--muted);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+
+@media screen and (max-width:760px){
+  .grid{grid-template-columns:1fr}
+  aside{border-left:0;border-top:1px solid var(--line)}
+  header,main,aside{padding-left:20px;padding-right:20px}
+  footer{padding:14px 20px}
+  .paper{border-radius:0}
+  h1{font-size:28px}
+  .row{flex-direction:column;gap:0}
+}
+@media print{
+  @page{size:A4;margin:10mm 0}
+  body{background:#fff;font-size:12.6px}
+  .toolbar,footer{display:none}
+  .paper{max-width:none;margin:0;box-shadow:none;border-radius:0}
+  header{padding:0 30px 16px}
+  .stripe{display:none}
+  main{padding:16px 22px 0 30px}
+  aside{padding:16px 22px 0 18px;background:#fff}
+  .grid{grid-template-columns:1fr 205px}
+  h1{font-size:27px}
+  section+section{margin-top:18px}
+  h2{break-after:avoid}
+  aside section{break-inside:avoid}
+  .entry{margin-bottom:12px;break-inside:avoid}
+  h3{font-size:13.5px}
+  .sub,.mini,.earlier{font-size:12px}
+  .tags li{font-size:10px;padding:1px 6px}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<nav class="toolbar" aria-label="Resume navigation">
+  <a href="../">← Portfolio</a>
+  <a class="pdf" href="Jerrick-Huang-Resume.pdf" download>Download PDF</a>
+</nav>
+
+<article class="paper">
+  <div class="stripe" aria-hidden="true"></div>
+
+  <header>
+    <h1>Jerrick Huang <small>(Chi-Lin Huang)</small></h1>
+    <p class="role">Post-Baccalaureate CS Student · Aspiring Software Engineer · Graduating Dec 2026</p>
+    <ul class="contact">
+      <li style="--c:var(--blue)">Taiwan</li>
+      <li style="--c:var(--red)"><a href="tel:+886953527088">+886 953 527 088</a></li>
+      <li style="--c:var(--amber)"><a href="mailto:jerrick.huang.dev@gmail.com">jerrick.huang.dev@gmail.com</a></li>
+      <li style="--c:var(--green)"><a href="https://github.com/JerrickHuang">github.com/JerrickHuang</a></li>
+      <li style="--c:var(--violet)"><a href="https://jerrickhuang.github.io/">jerrickhuang.github.io</a></li>
+    </ul>
+  </header>
+
+  <div class="grid">
+    <main>
+      <section style="--c:var(--blue)">
+        <h2>Summary</h2>
+        <p class="summary">
+          Computer Science student in Feng Chia University's one-year post-baccalaureate program,
+          building backend and full-stack systems with Java, Spring Boot, and Vue. Before moving into
+          software, I earned degrees in journalism and music and spent nearly a decade studying and
+          working in Australia and the United States, which taught me to communicate clearly, document
+          carefully, and work across cultures. I learn quickly and am committed to steadily deepening
+          my computer science fundamentals and engineering skills.
+        </p>
+      </section>
+
+      <section style="--c:var(--red)">
+        <h2>Projects</h2>
+
+        <div class="entry">
+          <div class="row"><h3>AI-Driven Operations Platform for Cram Schools <span class="badge">in progress</span></h3><span class="date">2026</span></div>
+          <p class="sub">Graduation capstone · 2-person team · Demo Dec 2026</p>
+          <ul class="pts">
+            <li>Designing and implementing a modular-monolith platform (6 modules, 30 tables, 132 REST APIs) that tracks enrollment, billing, costs, and student-retention risk for a single cram school</li>
+            <li>Own the Identity, Admissions, and Billing modules (57 APIs, 14 tables): JWT in httpOnly cookies, three-role RBAC checked on every endpoint, and audit logs with before/after values</li>
+            <li>Enrollment state machine with row-level locking so concurrent sign-ups cannot oversell the last seat; deposit-and-balance invoicing with rule-based refund calculation</li>
+            <li>OpenAPI contract-first workflow; module boundaries enforced by ArchUnit; tests with JUnit 5, MockMvc, and Testcontainers</li>
+          </ul>
+          <ul class="tags">
+            <li class="t-b">Java 21</li><li class="t-b">Spring Boot 3</li><li class="t-b">Spring Security</li><li class="t-a">MySQL 8</li><li class="t-a">Flyway</li><li class="t-g">Vue 3</li><li class="t-a">Docker Compose</li>
+          </ul>
+          <span class="link muted">Private repository · available on request</span>
+        </div>
+
+        <div class="entry">
+          <div class="row"><h3>Credit Card Fraud Detection</h3><span class="date">2026</span></div>
+          <p class="sub">Artificial Intelligence course project</p>
+          <ul class="pts">
+            <li>Built an XGBoost classifier for the highly imbalanced Kaggle Credit Card Fraud dataset and tuned its hyperparameters with Optuna, reaching a ROC-AUC of 0.983</li>
+          </ul>
+          <ul class="tags"><li class="t-v">Python</li><li class="t-v">XGBoost</li><li class="t-v">Optuna</li></ul>
+        </div>
+
+        <div class="entry">
+          <div class="row"><h3>Taiwan Chicken Cutlet Price Tracker</h3><span class="date">2026</span></div>
+          <p class="sub">Web Programming final project</p>
+          <ul class="pts">
+            <li>Full-stack web app for searching and charting historical price data, with a REST API, interactive charts with a year slider, and cited data sources</li>
+            <li>Built with a spec-driven workflow (proposal → design → tasks) and deployed to Azure App Service</li>
+          </ul>
+          <ul class="tags"><li class="t-b">Node.js</li><li class="t-b">Express</li><li class="t-a">SQLite</li><li class="t-g">JavaScript</li><li class="t-a">Azure</li></ul>
+          <a class="link" href="https://github.com/JerrickHuang/taiwan-chicken-cutlet-price-tracker">github.com/JerrickHuang/taiwan-chicken-cutlet-price-tracker</a>
+        </div>
+
+        <div class="entry">
+          <div class="row"><h3>AlgoQuest — iOS Game for Learning Data Structures &amp; Algorithms</h3><span class="date">2026</span></div>
+          <p class="sub">iOS App Development course project</p>
+          <ul class="pts">
+            <li>Offline RPG with 39 levels across 5 regions, from Big-O through graphs and dynamic programming; boss levels are classic interview problems</li>
+            <li>3D level map with custom camera and gesture handling; SwiftData persistence with best-score records and an automatic mistake-review list</li>
+            <li>Five step-by-step algorithm animations built on a shared pre-computed step-script design, plus a Python script that validates level data across Swift sources</li>
+          </ul>
+          <ul class="tags"><li class="t-g">Swift</li><li class="t-g">SwiftUI</li><li class="t-g">SceneKit</li><li class="t-a">SwiftData</li><li class="t-g">Swift Charts</li></ul>
+        </div>
+      </section>
+
+      <section style="--c:var(--amber)">
+        <h2>Experience</h2>
+
+        <div class="entry">
+          <div class="row"><h3>Music Instructor</h3><span class="date">Dec 2020 – Dec 2024</span></div>
+          <p class="sub"><b>Dunhuang Musical Instruments</b> · Taipei</p>
+          <ul class="pts"><li>Taught students of all ages and helped grow the school's enrollment by 10%</li></ul>
+        </div>
+
+        <div class="entry">
+          <div class="row"><h3>Private Bass &amp; Music Theory Tutor</h3><span class="date">Sep 2020 – Present</span></div>
+          <p class="sub"><b>Self-employed</b> · One-on-one lessons</p>
+        </div>
+
+        <div class="entry">
+          <div class="row"><h3>Overseas Sales</h3><span class="date">Oct 2019 – Sep 2020</span></div>
+          <p class="sub"><b>Lien Violins</b> · Taiwan</p>
+          <ul class="pts"><li>Served as the owner's English-language contact with overseas clients; supported purchasing and prospected new customers</li></ul>
+        </div>
+
+        <div class="entry">
+          <div class="row"><h3>Quality Control</h3><span class="date">Jan 2019 – Jun 2019</span></div>
+          <p class="sub"><b>Parallel Soundworks</b></p>
+          <ul class="pts"><li>Checked audio files and transcripts for accuracy before delivery</li></ul>
+        </div>
+
+        <div class="entry">
+          <div class="row"><h3>Manager Assistant, Box Office</h3><span class="date">Oct 2016 – Oct 2017</span></div>
+          <p class="sub"><b>Colden Auditorium</b> · New York</p>
+        </div>
+
+        <p class="earlier">Earlier: Learning Center Assistant, Berklee College of Music (2011–13) · Librarian, Jazz Music Institute, Brisbane (2009–10) · Army Corporal, Taiwan (2006–07) · TV News Intern, Formosa TV (2005)</p>
+      </section>
+    </main>
+
+    <aside>
+      <section class="edu" style="--c:var(--green)">
+        <h2>Education</h2>
+        <div class="entry">
+          <h3>Feng Chia University</h3>
+          <p class="sub">Post-Baccalaureate Program in Computer Science</p>
+          <p class="sub">Feb 2026 – Dec 2026 (expected)</p>
+          <p class="sub">Industry partnership with SYSTEX</p>
+        </div>
+        <div class="entry">
+          <h3>Queens College, CUNY</h3>
+          <p class="sub">Master of Music, Jazz Studies · 2017</p>
+        </div>
+        <div class="entry">
+          <h3>Berklee College of Music</h3>
+          <p class="sub">Bachelor of Music, Professional Music, <b>cum laude</b> · 2013</p>
+        </div>
+        <div class="entry">
+          <h3>Shih Hsin University</h3>
+          <p class="sub">B.A., Journalism (International Communication) · 2006</p>
+        </div>
+      </section>
+
+      <section style="--c:var(--blue)">
+        <h2>Skills</h2>
+        <div class="skill"><h4>Languages</h4><ul class="tags"><li class="t-b">Java</li><li class="t-g">JavaScript</li><li class="t-a">SQL</li><li class="t-g">Swift</li><li class="t-v">Python</li><li class="t-g">HTML/CSS</li><li class="t-b">C</li></ul></div>
+        <div class="skill"><h4>Backend</h4><ul class="tags"><li class="t-b">Spring Boot</li><li class="t-b">Spring Security</li><li class="t-b">JPA</li><li class="t-b">Express</li><li class="t-b">REST</li><li class="t-b">OpenAPI</li></ul></div>
+        <div class="skill"><h4>Frontend &amp; Mobile</h4><ul class="tags"><li class="t-g">Vue 3</li><li class="t-g">Pinia</li><li class="t-g">ECharts</li><li class="t-g">SwiftUI</li></ul></div>
+        <div class="skill"><h4>Data &amp; DevOps</h4><ul class="tags"><li class="t-a">MySQL</li><li class="t-a">SQLite</li><li class="t-a">Docker</li><li class="t-a">Azure</li><li class="t-a">Git</li></ul></div>
+        <div class="skill"><h4>Testing &amp; ML</h4><ul class="tags"><li class="t-v">JUnit 5</li><li class="t-v">Testcontainers</li><li class="t-v">ArchUnit</li><li class="t-v">XGBoost</li></ul></div>
+      </section>
+
+      <section style="--c:var(--violet)">
+        <h2>Technical Training</h2>
+        <ul class="mini">
+          <li><b>Semiconductor Talent Program</b><span>NYCU · 212 hrs · 2022</span></li>
+          <li><b>IC Layout Engineer Training</b><span>Tze-Chiang Foundation · 135 hrs · 2025</span></li>
+          <li><b>Web Front-End Development</b><span>NTU CSIE · HTML5, CSS3, jQuery, Bootstrap, JavaScript ES6 · 3 courses · 2022–24</span></li>
+          <li><b>Self-study</b><span>Algorithms, OS, computer organization, discrete math, linear algebra via NTU / NYCU / NTHU OpenCourseWare</span></li>
+        </ul>
+      </section>
+
+      <section style="--c:var(--red)">
+        <h2>Languages</h2>
+        <ul class="mini">
+          <li><b>Mandarin</b><span>Native</span></li>
+          <li><b>English</b><span>Professional · ~10 years in AU &amp; US</span></li>
+          <li><b>Taiwanese</b><span>Conversational</span></li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+
+  <footer><span>Last updated Nov 2026</span><span>jerrickhuang.github.io/resume</span></footer>
+</article>
+</body>
+</html>
